@@ -1,0 +1,5 @@
+# PDFs are byte-exact test inputs (the writer's tests check every original byte and offset):
+# never convert their line endings and never diff or merge them as text.
+*.pdf binary
+# The committed reproducers and their sidecars are compared byte for byte.
+Fixtures/regression/** -text

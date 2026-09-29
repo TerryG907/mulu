@@ -1,0 +1,49 @@
+# Mulu: only source, tests, tool scripts, the small committed fixtures (Fixtures/regression)
+# and docs are tracked. Everything below is generated, downloaded or private.
+
+# ---- regenerable fixtures and run outputs
+# tools/fixtures/make_fixtures.py (tools/run_all.sh builds it when missing; --regen forces)
+Fixtures/generated/
+# tools/fixtures/make_books.py (tools/run_all.sh --books builds it when missing)
+Fixtures/books/
+# tools/run_all.sh outputs
+Fixtures/out/
+# tools/verify/verify.py selftest outputs (tools/run_all.sh --selftest)
+Fixtures/selftest/
+# Fixtures/regression/ IS tracked: one reproducer per adversarial finding, never regenerated.
+
+# ---- real-scan gate: the list of your books and the reports stay on your Mac
+tools/gate/reports/
+tools/gate/toc_pages.csv
+
+# ---- adversarial reviews: keep the generator and driver scripts only.
+# Generated PDFs, results and logs are not tracked; the reproducers that matter live in
+# Fixtures/regression, and tools/eval/week1_regress.py regenerates week1-* inputs on demand.
+tools/adversarial/**
+!tools/adversarial/**/
+!tools/adversarial/**/*.py
+!tools/adversarial/**/*.sh
+!tools/adversarial/**/*.swift
+!tools/adversarial/**/*.mjs
+!tools/adversarial/**/package.json
+!tools/adversarial/**/package-lock.json
+!tools/adversarial/**/README.md
+
+# ---- compiled helpers (rebuilt from their .swift sources on first use)
+tools/verify/.bin/
+tools/fixtures/.bin/
+.bin/
+
+# ---- build products, caches, dependencies (kept last so they win everywhere)
+.build/
+.swiftpm/
+DerivedData/
+xcuserdata/
+__pycache__/
+*.py[cod]
+.venv/
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+node_modules/
+.DS_Store

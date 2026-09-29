@@ -1,0 +1,42 @@
+# text_objstm
+# <indent><title><whitespace><page>; level = leading TABs or spaces/2
+摘要 Abstract 1
+
+第一章 绪论 1
+  1.1 研究背景 2
+    1.1.1 国内研究现状 3
+    1.1.2 International Research Status 4
+  1.2 研究意义与目标 Research Objectives 5
+  1.3 论文结构 6
+
+第二章 文献综述 Literature Review 7
+  2.1 理论基础 8
+    2.1.1 Transformer 架构 9
+    2.1.2 注意力机制 (Attention) 10
+  2.2 Related Work: 95% CI [1.2, 3.4] 11
+
+Chapter 3 Methodology 研究方法 12
+  3.1 数据采集 Data Collection 13
+    3.1.1 问卷设计 & 抽样 14
+    3.1.2 "Quoted" (paren) \ backslash 15
+  3.2 模型构建 16
+
+第四章 实验结果与分析 17
+  4.1 Experimental Setup 实验设置 18
+  4.2 结果 Results 2024 19
+    4.2.1 Ünïcödé — café naïve 20
+    4.2.2 数学符号 α≤β, ∑x² 21
+  4.3 消融实验 Ablation 22
+
+第五章 结论与展望 23
+  5.1 主要结论 24
+  5.2 Limitations & Future Work 25
+
+参考文献 References 26
+
+Appendix A 数据表 (Data Tables) 27
+  A.1 原始数据 Raw Data 28
+
+附录 B：问卷原文 🔖 29
+
+致谢 Acknowledgements 30

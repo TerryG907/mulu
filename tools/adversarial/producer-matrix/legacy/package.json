@@ -1,0 +1,9 @@
+{
+  "name": "mulu-producer-matrix-legacy-readers",
+  "private": true,
+  "dependencies": {
+    "pdfjs2": "npm:pdfjs-dist@2.16.105",
+    "pdfjs3": "npm:pdfjs-dist@3.11.174",
+    "pdfjs4": "npm:pdfjs-dist@4.10.38"
+  }
+}

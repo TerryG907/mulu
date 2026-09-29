@@ -1,0 +1,4 @@
+verify/.bin/
+verify/pdfjs/node_modules/
+fixtures/.bin/
+__pycache__/

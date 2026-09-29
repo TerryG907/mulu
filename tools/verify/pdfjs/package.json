@@ -1,0 +1,10 @@
+{
+  "name": "mulu-verify-pdfjs",
+  "private": true,
+  "version": "0.0.0",
+  "description": "pdf.js outline reader for the mulu verification harness",
+  "type": "module",
+  "dependencies": {
+    "pdfjs-dist": "5.7.284"
+  }
+}

@@ -1,0 +1,112 @@
+[
+ {
+  "title": "快速入门 Getting Started",
+  "level": 0,
+  "page_index": 0
+ },
+ {
+  "title": "安装 Installation",
+  "level": 1,
+  "page_index": 1
+ },
+ {
+  "title": "First Launch 首次启动",
+  "level": 1,
+  "page_index": 2
+ },
+ {
+  "title": "基本操作 Basics",
+  "level": 0,
+  "page_index": 3
+ },
+ {
+  "title": "打开文件 Opening Files",
+  "level": 1,
+  "page_index": 4
+ },
+ {
+  "title": "编辑目录 Editing the TOC",
+  "level": 1,
+  "page_index": 5
+ },
+ {
+  "title": "缩进与层级 Indentation",
+  "level": 2,
+  "page_index": 6
+ },
+ {
+  "title": "页码偏移 Page Offset",
+  "level": 2,
+  "page_index": 7
+ },
+ {
+  "title": "保存 Saving (增量写入)",
+  "level": 1,
+  "page_index": 8
+ },
+ {
+  "title": "高级功能 Advanced",
+  "level": 0,
+  "page_index": 9
+ },
+ {
+  "title": "批量处理 Batch Mode",
+  "level": 1,
+  "page_index": 10
+ },
+ {
+  "title": "命令行 CLI: mulu apply",
+  "level": 1,
+  "page_index": 12
+ },
+ {
+  "title": "--offset N",
+  "level": 2,
+  "page_index": 13
+ },
+ {
+  "title": "退出码 Exit Codes",
+  "level": 2,
+  "page_index": 14
+ },
+ {
+  "title": "常见问题 FAQ",
+  "level": 0,
+  "page_index": 15
+ },
+ {
+  "title": "为什么文件没有变大？",
+  "level": 1,
+  "page_index": 16
+ },
+ {
+  "title": "Why Is My Scan Unchanged?",
+  "level": 1,
+  "page_index": 17
+ },
+ {
+  "title": "加密文件 Encrypted PDFs",
+  "level": 1,
+  "page_index": 18
+ },
+ {
+  "title": "附录 Appendix",
+  "level": 0,
+  "page_index": 19
+ },
+ {
+  "title": "快捷键 Keyboard Shortcuts",
+  "level": 1,
+  "page_index": 20
+ },
+ {
+  "title": "版本历史 Changelog v0.1",
+  "level": 1,
+  "page_index": 21
+ },
+ {
+  "title": "联系我们 Contact",
+  "level": 0,
+  "page_index": 23
+ }
+]

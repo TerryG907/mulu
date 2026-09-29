@@ -1,0 +1,27 @@
+[
+ {
+  "title": "odd﻿inner BOM",
+  "level": 0,
+  "page_index": 0
+ },
+ {
+  "title": "﻿BOM-led second line",
+  "level": 0,
+  "page_index": 1
+ },
+ {
+  "title": "NUL-inside",
+  "level": 0,
+  "page_index": 2
+ },
+ {
+  "title": "LS inside",
+  "level": 0,
+  "page_index": 3
+ },
+ {
+  "title": "Replacement � char",
+  "level": 0,
+  "page_index": 4
+ }
+]

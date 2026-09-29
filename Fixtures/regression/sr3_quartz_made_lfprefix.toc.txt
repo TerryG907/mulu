@@ -1,0 +1,29 @@
+# quartz_made
+# <indent><title><whitespace><page>; level = leading TABs or spaces/2
+快速入门 Getting Started 1
+	安装 Installation 2
+	First Launch 首次启动 3
+
+基本操作 Basics 4
+	打开文件 Opening Files 5
+	编辑目录 Editing the TOC 6
+		缩进与层级 Indentation 7
+		页码偏移 Page Offset 8
+	保存 Saving (增量写入) 9
+
+高级功能 Advanced 10
+	批量处理 Batch Mode 11
+	命令行 CLI: mulu apply 13
+		--offset N 14
+		退出码 Exit Codes 15
+
+常见问题 FAQ 16
+	为什么文件没有变大？ 17
+	Why Is My Scan Unchanged? 18
+	加密文件 Encrypted PDFs 19
+
+附录 Appendix 20
+	快捷键 Keyboard Shortcuts 21
+	版本历史 Changelog v0.1 22
+
+联系我们 Contact 24

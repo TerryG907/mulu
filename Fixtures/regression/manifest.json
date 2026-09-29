@@ -1,0 +1,886 @@
+{
+ "fixtures": {
+  "sr3_text_objstm_lfprefix": {
+   "name": "sr3_text_objstm_lfprefix",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "SR-1 junk prefix frame (xref stream, LF before %PDF-)",
+   "source": "tools/adversarial/spec-review/gen3",
+   "notes": "text_objstm.pdf with b'\\n' prepended",
+   "facts": {
+    "size": 33431,
+    "pages": 30,
+    "encrypted": false,
+    "xref": "stream"
+   },
+   "options": {}
+  },
+  "sr3_quartz_made_lfprefix": {
+   "name": "sr3_quartz_made_lfprefix",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "SR-1 junk prefix frame (Quartz classic, LF before %PDF-)",
+   "source": "tools/adversarial/spec-review/gen3",
+   "notes": "quartz_made.pdf with b'\\n' prepended",
+   "facts": {
+    "size": 108744,
+    "pages": 24,
+    "encrypted": false,
+    "xref": "classic"
+   },
+   "options": {}
+  },
+  "sr_junk1_rel_stream": {
+   "name": "sr_junk1_rel_stream",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "SR-1 junk prefix frame (PDFKit could not open the old output)",
+   "source": "tools/adversarial/spec-review/gen",
+   "notes": "1 byte (space) before %PDF-, xref stream, offsets relative to the header",
+   "facts": {
+    "size": 1117,
+    "xref": "stream",
+    "encrypted": false,
+    "pages": 3
+   },
+   "options": {}
+  },
+  "sr_junk1_rel_classic": {
+   "name": "sr_junk1_rel_classic",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "SR-1 junk prefix frame (classic)",
+   "source": "tools/adversarial/spec-review/gen",
+   "notes": "1 byte (LF) before %PDF-, offsets relative to the header",
+   "facts": {
+    "size": 1147,
+    "xref": "classic",
+    "encrypted": false,
+    "pages": 3
+   },
+   "options": {}
+  },
+  "sr_junk2_rel_crlf": {
+   "name": "sr_junk2_rel_crlf",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "SR-1 junk prefix frame (CRLF file, CRLF prefix)",
+   "source": "tools/adversarial/spec-review/gen",
+   "notes": "CRLF file with CRLF before %PDF-, offsets relative to the header",
+   "facts": {
+    "size": 1191,
+    "xref": "classic",
+    "encrypted": false,
+    "pages": 3
+   },
+   "options": {}
+  },
+  "sr_junk8_rel_classic": {
+   "name": "sr_junk8_rel_classic",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "SR-1 control: 8 junk bytes, header-relative (kept passing)",
+   "source": "tools/adversarial/spec-review/gen",
+   "notes": "control: 8 junk bytes before %PDF-, offsets relative (mulu retries base)",
+   "facts": {
+    "size": 1154,
+    "xref": "classic",
+    "encrypted": false,
+    "pages": 3
+   },
+   "options": {}
+  },
+  "sr3_text_objstm_crlfprefix": {
+   "name": "sr3_text_objstm_crlfprefix",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "SR-2 pypdf lost the outline (CRLF prefix, xref stream)",
+   "source": "tools/adversarial/spec-review/gen3",
+   "notes": "text_objstm.pdf with b'\\r\\n' prepended",
+   "facts": {
+    "size": 33432,
+    "pages": 30,
+    "encrypted": false,
+    "xref": "stream"
+   },
+   "options": {}
+  },
+  "sr2_recon_junk8": {
+   "name": "sr2_recon_junk8",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "SR-3 reconstruct + junk prefix: complete table in the header frame",
+   "source": "tools/adversarial/spec-review/gen2",
+   "notes": "8 junk bytes before %PDF-, header-relative offsets, broken startxref -> reconstruct; the complete table mulu writes must use the readers' (header-relative) frame",
+   "facts": {
+    "size": 1153,
+    "xref": "classic",
+    "encrypted": false,
+    "pages": 3
+   },
+   "options": {
+    "complete_xref": true
+   }
+  },
+  "sr_trailer_private_keys": {
+   "name": "sr_trailer_private_keys",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "SR-4 added trailer keeps every previous entry (classic)",
+   "source": "tools/adversarial/spec-review/gen",
+   "notes": "trailer carries /Info, /ID and a private second-class key",
+   "facts": {
+    "size": 1323,
+    "xref": "classic",
+    "encrypted": false,
+    "pages": 3
+   },
+   "options": {}
+  },
+  "sr_trailer_private_keys_stream": {
+   "name": "sr_trailer_private_keys_stream",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "SR-4 added trailer keeps every previous entry (xref stream)",
+   "source": "tools/adversarial/spec-review/gen",
+   "notes": "xref-stream trailer with a private second-class key",
+   "facts": {
+    "size": 1140,
+    "xref": "stream",
+    "encrypted": false,
+    "pages": 3
+   },
+   "options": {}
+  },
+  "sr_dangling_ref": {
+   "name": "sr_dangling_ref",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "SR-5 /Annots [10 0 R 11 0 R] undefined: new objects numbered above them",
+   "source": "tools/adversarial/spec-review/gen",
+   "notes": "page 1 /Annots [10 0 R] where 10 is undefined (/Size 10)",
+   "facts": {
+    "size": 1170,
+    "xref": "classic",
+    "encrypted": false,
+    "pages": 3
+   },
+   "options": {}
+  },
+  "sr_dangling_resources": {
+   "name": "sr_dangling_resources",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "SR-5 /Resources 10 0 R undefined: new objects numbered above it",
+   "source": "tools/adversarial/spec-review/gen",
+   "notes": "page 1 /Resources 10 0 R is undefined (null -> inherited from /Pages); mulu's new object 10 captures it",
+   "facts": {
+    "size": 1086,
+    "xref": "classic",
+    "encrypted": false,
+    "pages": 3
+   },
+   "options": {}
+  },
+  "h_int64max_offset_junkprefix": {
+   "name": "h_int64max_offset_junkprefix",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-1 Int overflow trap (junk prefix + Int64.max offset)",
+   "source": "tools/adversarial/hostile-inputs/gen",
+   "notes": "",
+   "facts": {
+    "size": 1678,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 5,
+    "xref": "stream",
+    "revisions": 1
+   },
+   "options": {}
+  },
+  "h_deep_decodeparms_chain": {
+   "name": "h_deep_decodeparms_chain",
+   "status": "ok",
+   "expect": "refuse",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-2 stack overflow via 20,000 nested /DecodeParms",
+   "source": "tools/adversarial/hostile-inputs/gen",
+   "notes": "",
+   "facts": {
+    "size": 3088733,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 3,
+    "xref": "stream",
+    "revisions": 1
+   },
+   "options": {
+    "expect_stderr": "nest more than \\d+ levels",
+    "expect_info": "error"
+   }
+  },
+  "h_pagetree_cycle": {
+   "name": "h_pagetree_cycle",
+   "status": "ok",
+   "expect": "refuse",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-3 page-tree cycle must be refused",
+   "source": "tools/adversarial/hostile-inputs/gen",
+   "notes": "",
+   "facts": {
+    "size": 1193,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 3,
+    "xref": "classic",
+    "revisions": 1
+   },
+   "options": {
+    "expect_stderr": "cycle",
+    "expect_info": "error"
+   }
+  },
+  "h_pagetree_selfkid": {
+   "name": "h_pagetree_selfkid",
+   "status": "ok",
+   "expect": "refuse",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-3 root /Pages lists itself",
+   "source": "tools/adversarial/hostile-inputs/gen",
+   "notes": "",
+   "facts": {
+    "size": 1093,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 3,
+    "xref": "classic",
+    "revisions": 1
+   },
+   "options": {
+    "expect_stderr": "cycle",
+    "expect_info": "error"
+   }
+  },
+  "h_junk_prefix_rel1": {
+   "name": "h_junk_prefix_rel1",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": true,
+   "perf_limit_ms": null,
+   "finding": "HI-4 1 junk byte, header-relative (with re-apply)",
+   "source": "tools/adversarial/hostile-inputs/gen",
+   "notes": "",
+   "facts": {
+    "size": 1787,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 5,
+    "xref": "classic",
+    "revisions": 1
+   },
+   "options": {}
+  },
+  "h_junk_prefix_rel2_blanklines": {
+   "name": "h_junk_prefix_rel2_blanklines",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-4 CRLF prefix, header-relative",
+   "source": "tools/adversarial/hostile-inputs/gen",
+   "notes": "",
+   "facts": {
+    "size": 1816,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 5,
+    "xref": "classic",
+    "revisions": 1
+   },
+   "options": {}
+  },
+  "h3_i64max_prev_junk": {
+   "name": "h3_i64max_prev_junk",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-4 junk prefix on the reconstruction path",
+   "source": "tools/adversarial/hostile-inputs/gen3",
+   "notes": "",
+   "facts": {
+    "size": 1688,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 5,
+    "xref": "stream"
+   },
+   "options": {
+    "complete_xref": true
+   }
+  },
+  "h2_count_mismatch": {
+   "name": "h2_count_mismatch",
+   "status": "ok",
+   "expect": "refuse",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-5 /Count 3 with 5 kids: readers disagree -> refuse",
+   "source": "tools/adversarial/hostile-inputs/gen2",
+   "notes": "",
+   "facts": {
+    "size": 1786,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 5,
+    "xref": "classic",
+    "revisions": 1
+   },
+   "options": {
+    "expect_stderr": "/Count",
+    "expect_info": "error"
+   }
+  },
+  "h_pagetree_missingkid": {
+   "name": "h_pagetree_missingkid",
+   "status": "ok",
+   "expect": "refuse",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-6 dangling /Kids entry -> refuse",
+   "source": "tools/adversarial/hostile-inputs/gen",
+   "notes": "",
+   "facts": {
+    "size": 1094,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 3,
+    "xref": "classic",
+    "revisions": 1
+   },
+   "options": {
+    "expect_stderr": "missing",
+    "expect_info": "error"
+   }
+  },
+  "h_pagetree_dupleaf": {
+   "name": "h_pagetree_dupleaf",
+   "status": "ok",
+   "expect": "refuse",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-6 (same class) a page listed twice -> refuse",
+   "source": "tools/adversarial/hostile-inputs/gen",
+   "notes": "",
+   "facts": {
+    "size": 1094,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 4,
+    "xref": "classic",
+    "revisions": 1
+   },
+   "options": {
+    "expect_stderr": "appears twice",
+    "expect_info": "error"
+   }
+  },
+  "h_offset0_shadow": {
+   "name": "h_offset0_shadow",
+   "status": "ok",
+   "expect": "refuse",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-7 page resolves through an offset-0 entry -> refuse",
+   "source": "tools/adversarial/hostile-inputs/gen",
+   "notes": "",
+   "facts": {
+    "size": 1712,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 4,
+    "xref": "classic",
+    "revisions": 2
+   },
+   "options": {
+    "expect_stderr": "missing",
+    "expect_info": "error"
+   }
+  },
+  "h2_page_offset_beyond_eof": {
+   "name": "h2_page_offset_beyond_eof",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-8 repaired page offset is republished",
+   "source": "tools/adversarial/hostile-inputs/gen2",
+   "notes": "",
+   "facts": {
+    "size": 1786,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 5,
+    "xref": "classic"
+   },
+   "options": {
+    "republish": true
+   }
+  },
+  "h_xref_first_subsection_1": {
+   "name": "h_xref_first_subsection_1",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-8 renumbered '1 N' table is republished",
+   "source": "tools/adversarial/hostile-inputs/gen",
+   "notes": "",
+   "facts": {
+    "size": 1786,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 5,
+    "xref": "classic",
+    "revisions": 1
+   },
+   "options": {
+    "republish": true,
+    "allow_na": [
+     "spec",
+     "struct"
+    ]
+   }
+  },
+  "h2_page_nest300": {
+   "name": "h2_page_nest300",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": true,
+   "perf_limit_ms": null,
+   "finding": "HI-9 page dicts nested 300 deep are only referenced: apply",
+   "source": "tools/adversarial/hostile-inputs/gen2",
+   "notes": "",
+   "facts": {
+    "size": 4846,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 5,
+    "xref": "classic",
+    "revisions": 1
+   },
+   "options": {}
+  },
+  "h2_catalog_nest100k": {
+   "name": "h2_catalog_nest100k",
+   "status": "ok",
+   "expect": "refuse",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-9 catalog nested 100k deep: refuse, naming the nesting limit",
+   "source": "tools/adversarial/hostile-inputs/gen2",
+   "notes": "",
+   "facts": {
+    "size": 201795,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 5,
+    "xref": "classic",
+    "revisions": 1
+   },
+   "options": {
+    "expect_stderr": "nests arrays or dictionaries more than"
+   }
+  },
+  "h2_classic_objnum_9e9": {
+   "name": "h2_classic_objnum_9e9",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-10 stray free entry 9e9 does not block apply",
+   "source": "tools/adversarial/hostile-inputs/gen2",
+   "notes": "",
+   "facts": {
+    "size": 1819,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 5,
+    "xref": "classic",
+    "revisions": 1
+   },
+   "options": {}
+  },
+  "h2_xrefstm_objnum_5e12": {
+   "name": "h2_xrefstm_objnum_5e12",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-10 stray entry 5e12 in an xref stream",
+   "source": "tools/adversarial/hostile-inputs/gen2",
+   "notes": "",
+   "facts": {
+    "size": 1670,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 5,
+    "xref": "stream",
+    "revisions": 1
+   },
+   "options": {}
+  },
+  "h2_direct_page_kid_ok": {
+   "name": "h2_direct_page_kid_ok",
+   "status": "ok",
+   "expect": "refuse",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-11 direct page kid anywhere -> refuse",
+   "source": "tools/adversarial/hostile-inputs/gen2",
+   "notes": "",
+   "facts": {
+    "size": 1145,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 3,
+    "xref": "classic"
+   },
+   "options": {
+    "expect_stderr": "not an indirect reference",
+    "expect_info": "error"
+   }
+  },
+  "h2_direct_page_kid_target": {
+   "name": "h2_direct_page_kid_target",
+   "status": "ok",
+   "expect": "refuse",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-11 direct page kid targeted -> refuse",
+   "source": "tools/adversarial/hostile-inputs/gen2",
+   "notes": "",
+   "facts": {
+    "size": 1145,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 3,
+    "xref": "classic"
+   },
+   "options": {
+    "expect_stderr": "not an indirect reference",
+    "expect_info": "error"
+   }
+  },
+  "h_hybrid_free": {
+   "name": "h_hybrid_free",
+   "status": "ok",
+   "expect": "refuse",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-12 hybrid table-free vs /XRefStm conflict: message names it",
+   "source": "tools/adversarial/hostile-inputs/gen",
+   "notes": "",
+   "facts": {
+    "size": 1745,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 6,
+    "xref": "hybrid",
+    "revisions": 1
+   },
+   "options": {
+    "expect_stderr": "hybrid xref",
+    "expect_info": "error"
+   }
+  },
+  "h_objstm_lzw": {
+   "name": "h_objstm_lzw",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-12 LZWDecode object stream is decoded",
+   "source": "tools/adversarial/hostile-inputs/gen",
+   "notes": "",
+   "facts": {
+    "size": 1377,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 5,
+    "xref": "stream",
+    "revisions": 1
+   },
+   "options": {}
+  },
+  "h2_objstm_256mb_padding": {
+   "name": "h2_objstm_256mb_padding",
+   "status": "ok",
+   "expect": "refuse",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-13 decompression bomb: capped, bounded memory",
+   "source": "tools/adversarial/hostile-inputs/gen2",
+   "notes": "",
+   "facts": {
+    "size": 262078,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 5,
+    "xref": "stream",
+    "revisions": 1
+   },
+   "options": {
+    "expect_stderr": "MiB",
+    "max_rss_mb": 200,
+    "expect_info": "error"
+   }
+  },
+  "h2_objstm_first_negative": {
+   "name": "h2_objstm_first_negative",
+   "status": "ok",
+   "expect": "refuse",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-14 info must fail where apply refuses",
+   "source": "tools/adversarial/hostile-inputs/gen2",
+   "notes": "",
+   "facts": {
+    "size": 1140,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 5,
+    "xref": "stream"
+   },
+   "options": {
+    "expect_info": "error"
+   }
+  },
+  "h2_root_direct_dict": {
+   "name": "h2_root_direct_dict",
+   "status": "ok",
+   "expect": "refuse",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-14 info must fail where apply refuses",
+   "source": "tools/adversarial/hostile-inputs/gen2",
+   "notes": "",
+   "facts": {
+    "size": 1749,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 5,
+    "xref": "classic",
+    "revisions": 1
+   },
+   "options": {
+    "expect_info": "error"
+   }
+  },
+  "h_mixed_stream_then_classic": {
+   "name": "h_mixed_stream_then_classic",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": true,
+   "perf_limit_ms": null,
+   "finding": "HI-15 classic update over an xref-stream revision",
+   "source": "tools/adversarial/hostile-inputs/gen",
+   "notes": "",
+   "facts": {
+    "size": 1561,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 5,
+    "xref": "classic",
+    "revisions": 2
+   },
+   "options": {
+    "input_unreadable": {
+     "pdfkit": "PDFKit cannot open the input (classic section over an xref stream)"
+    }
+   }
+  },
+  "h_toc_weird_codepoints": {
+   "name": "h_toc_weird_codepoints",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-16 harness: U+2028 in a title (split on \\n only)",
+   "source": "tools/adversarial/hostile-inputs/gen",
+   "notes": "",
+   "facts": {
+    "size": 1786,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 5,
+    "xref": "classic",
+    "revisions": 1
+   },
+   "options": {}
+  },
+  "h_catalog_dupkeys_emptyname": {
+   "name": "h_catalog_dupkeys_emptyname",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-16 harness: shifted qpdf offsets, int catalog values",
+   "source": "tools/adversarial/hostile-inputs/gen",
+   "notes": "",
+   "facts": {
+    "size": 1827,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 5,
+    "xref": "classic",
+    "revisions": 1
+   },
+   "options": {
+    "input_unreadable": {
+     "pdfkit": "CoreGraphics rejects the input's /Z#00 name"
+    }
+   }
+  },
+  "h2_xrefstm_length_huge": {
+   "name": "h2_xrefstm_length_huge",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "HI-16 harness: shifted qpdf offsets",
+   "source": "tools/adversarial/hostile-inputs/gen2",
+   "notes": "",
+   "facts": {
+    "size": 1669,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 5,
+    "xref": "stream"
+   },
+   "options": {}
+  },
+  "h_catalog_exotic": {
+   "name": "h_catalog_exotic",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": true,
+   "perf_limit_ms": null,
+   "finding": "HI-16 harness: Decimal/int catalog values",
+   "source": "tools/adversarial/hostile-inputs/gen",
+   "notes": "",
+   "facts": {
+    "size": 2408,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "pages": 5,
+    "xref": "classic",
+    "revisions": 1
+   },
+   "options": {}
+  },
+  "toc_fullwidth_indent": {
+   "name": "toc_fullwidth_indent",
+   "status": "ok",
+   "expect": "apply",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "PM-1 full-width space (U+3000) indentation counts as one level",
+   "source": "synthetic",
+   "notes": "Word/WPS-style Chinese TOC indented with U+3000",
+   "facts": {
+    "size": 40423,
+    "xref": "classic",
+    "revisions": 1,
+    "pages": 7,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "qpdf_warnings": []
+   },
+   "options": {}
+  },
+  "toc_nbsp_indent": {
+   "name": "toc_nbsp_indent",
+   "status": "ok",
+   "expect": "refuse",
+   "reapply": false,
+   "perf_limit_ms": null,
+   "finding": "PM-1 other leading Unicode whitespace is refused, not silently flattened",
+   "source": "synthetic",
+   "notes": "",
+   "facts": {
+    "size": 40423,
+    "xref": "classic",
+    "revisions": 1,
+    "pages": 7,
+    "encrypted": false,
+    "linearized": false,
+    "has_outline": false,
+    "qpdf_warnings": []
+   },
+   "options": {
+    "expect_stderr": "line 2: indentation uses U\\+00A0"
+   }
+  }
+ }
+}

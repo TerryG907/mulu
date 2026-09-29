@@ -1,0 +1,157 @@
+[
+ {
+  "title": "摘要 Abstract",
+  "level": 0,
+  "page_index": 0
+ },
+ {
+  "title": "第一章 绪论",
+  "level": 0,
+  "page_index": 0
+ },
+ {
+  "title": "1.1 研究背景",
+  "level": 1,
+  "page_index": 1
+ },
+ {
+  "title": "1.1.1 国内研究现状",
+  "level": 2,
+  "page_index": 2
+ },
+ {
+  "title": "1.1.2 International Research Status",
+  "level": 2,
+  "page_index": 3
+ },
+ {
+  "title": "1.2 研究意义与目标 Research Objectives",
+  "level": 1,
+  "page_index": 4
+ },
+ {
+  "title": "1.3 论文结构",
+  "level": 1,
+  "page_index": 5
+ },
+ {
+  "title": "第二章 文献综述 Literature Review",
+  "level": 0,
+  "page_index": 6
+ },
+ {
+  "title": "2.1 理论基础",
+  "level": 1,
+  "page_index": 7
+ },
+ {
+  "title": "2.1.1 Transformer 架构",
+  "level": 2,
+  "page_index": 8
+ },
+ {
+  "title": "2.1.2 注意力机制 (Attention)",
+  "level": 2,
+  "page_index": 9
+ },
+ {
+  "title": "2.2 Related Work: 95% CI [1.2, 3.4]",
+  "level": 1,
+  "page_index": 10
+ },
+ {
+  "title": "Chapter 3 Methodology 研究方法",
+  "level": 0,
+  "page_index": 11
+ },
+ {
+  "title": "3.1 数据采集 Data Collection",
+  "level": 1,
+  "page_index": 12
+ },
+ {
+  "title": "3.1.1 问卷设计 & 抽样",
+  "level": 2,
+  "page_index": 13
+ },
+ {
+  "title": "3.1.2 \"Quoted\" (paren) \\ backslash",
+  "level": 2,
+  "page_index": 14
+ },
+ {
+  "title": "3.2 模型构建",
+  "level": 1,
+  "page_index": 15
+ },
+ {
+  "title": "第四章 实验结果与分析",
+  "level": 0,
+  "page_index": 16
+ },
+ {
+  "title": "4.1 Experimental Setup 实验设置",
+  "level": 1,
+  "page_index": 17
+ },
+ {
+  "title": "4.2 结果 Results 2024",
+  "level": 1,
+  "page_index": 18
+ },
+ {
+  "title": "4.2.1 Ünïcödé — café naïve",
+  "level": 2,
+  "page_index": 19
+ },
+ {
+  "title": "4.2.2 数学符号 α≤β, ∑x²",
+  "level": 2,
+  "page_index": 20
+ },
+ {
+  "title": "4.3 消融实验 Ablation",
+  "level": 1,
+  "page_index": 21
+ },
+ {
+  "title": "第五章 结论与展望",
+  "level": 0,
+  "page_index": 22
+ },
+ {
+  "title": "5.1 主要结论",
+  "level": 1,
+  "page_index": 23
+ },
+ {
+  "title": "5.2 Limitations & Future Work",
+  "level": 1,
+  "page_index": 24
+ },
+ {
+  "title": "参考文献 References",
+  "level": 0,
+  "page_index": 25
+ },
+ {
+  "title": "Appendix A 数据表 (Data Tables)",
+  "level": 0,
+  "page_index": 26
+ },
+ {
+  "title": "A.1 原始数据 Raw Data",
+  "level": 1,
+  "page_index": 27
+ },
+ {
+  "title": "附录 B：问卷原文 🔖",
+  "level": 0,
+  "page_index": 28
+ },
+ {
+  "title": "致谢 Acknowledgements",
+  "level": 0,
+  "page_index": 29
+ }
+]

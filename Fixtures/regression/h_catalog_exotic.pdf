@@ -1,0 +1,86 @@
+%PDF-1.7
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R
+  % a comment inside the catalog dictionary
+  /Lang (en\(US\) \\ \376\377 tab\t) /A#20B#23C /Name#C3#A9 /Caf#C3#A9 /Str (caf\351)
+  /ViewerPreferences << /DisplayDocTitle true /Direction /R2L /PrintPageRange [0 1] >>
+  /OpenAction [4 0 R /FitH -.5] /Threshold +3.0 /Weird 4. /Neg -0 /Big 123456789012345678
+  /PageLabels << /Nums [0 << /S /r >> 2 << /S /D /St 1 /P <FEFF00410042> >>] >>
+  /PageMode /UseThumbs /PageMode /FullScreen
+  /MarkInfo << /Marked true >> /AcroForm << /Fields [] /DA (/Helv 0 Tf 0 g) /NeedAppearances false >>
+  /Binary <00FF10EE7F80> /Nested [[[<< /K [1 [2 [3]]] >>]]] /Outlines null
+>>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R 6 0 R 8 0 R 10 0 R 12 0 R] /Count 5 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<<  /Length 66 >>
+stream
+q 0.8 g 50 100 150 80 re f Q BT /F1 36 Tf 72 700 Td (Page 1) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<<  /Length 66 >>
+stream
+q 0.8 g 67 123 150 80 re f Q BT /F1 36 Tf 72 700 Td (Page 2) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<<  /Length 66 >>
+stream
+q 0.8 g 84 146 150 80 re f Q BT /F1 36 Tf 72 700 Td (Page 3) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 11 0 R >>
+endobj
+11 0 obj
+<<  /Length 67 >>
+stream
+q 0.8 g 101 169 150 80 re f Q BT /F1 36 Tf 72 700 Td (Page 4) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 13 0 R >>
+endobj
+13 0 obj
+<<  /Length 67 >>
+stream
+q 0.8 g 118 192 150 80 re f Q BT /F1 36 Tf 72 700 Td (Page 5) Tj ET
+endstream
+endobj
+xref
+0 14
+0000000000 65535 f 
+0000000015 00000 n 
+0000000673 00000 n 
+0000000756 00000 n 
+0000000826 00000 n 
+0000000952 00000 n 
+0000001069 00000 n 
+0000001195 00000 n 
+0000001312 00000 n 
+0000001438 00000 n 
+0000001555 00000 n 
+0000001683 00000 n 
+0000001802 00000 n 
+0000001930 00000 n 
+trailer
+<< /Size 14 /Root 1 0 R /Info 30 0 R >>
+startxref
+2049
+%%EOF
