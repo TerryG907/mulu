@@ -2,7 +2,7 @@
 
 # Mulu（目录）
 
-[![CI](https://github.com/TerryG907/mu-lu/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/TerryG907/mu-lu/actions/workflows/ci.yml)
+[![CI](https://github.com/TerryG907/mulu/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/TerryG907/mulu/actions/workflows/ci.yml)
 
 给扫描版 PDF 加上可以点击的多级目录（书签），**原文件的字节一个都不改**。
 
@@ -25,7 +25,7 @@
 
 不想装开发工具，可以直接下载打包好的图形界面：
 
-1. 到 [Releases](https://github.com/TerryG907/mu-lu/releases) 下载 `Mulu-<版本>-macos-arm64.zip`，解压得到 `Mulu.app`。
+1. 到 [Releases](https://github.com/TerryG907/mulu/releases) 下载 `Mulu-<版本>-macos-arm64.zip`，解压得到 `Mulu.app`。
 2. 第一次打开会被系统拦住，因为 App 只有 ad-hoc 签名，没有 Developer ID，也没有公证：
    - macOS 14：在 Finder 里右键点 App ▸ 打开 ▸ 再点「打开」。
    - macOS 15 及以后：先双击一次（会被拦），再到「系统设置 ▸ 隐私与安全性」里点「仍要打开」。
@@ -105,7 +105,7 @@ open dist/Mulu.app
 ## 从源码构建
 
 ```bash
-git clone https://github.com/TerryG907/mu-lu.git mulu
+git clone https://github.com/TerryG907/mulu.git
 cd mulu
 swift build -c release
 .build/release/mulu --help
@@ -304,7 +304,7 @@ Mulu adds a clickable, multi-level outline (bookmarks) to a scanned PDF **withou
 
 If you do not want to install developer tools, download the packaged app:
 
-1. Get `Mulu-<version>-macos-arm64.zip` from [Releases](https://github.com/TerryG907/mu-lu/releases) and unzip it; you get `Mulu.app`.
+1. Get `Mulu-<version>-macos-arm64.zip` from [Releases](https://github.com/TerryG907/mulu/releases) and unzip it; you get `Mulu.app`.
 2. macOS blocks the first launch, because the app is only ad-hoc signed (no Developer ID, not notarized):
    - macOS 14: in Finder, right-click the app ▸ Open ▸ then click Open.
    - macOS 15 and later: double-click it once (it is blocked), then go to System Settings ▸ Privacy & Security and click Open Anyway.
@@ -382,7 +382,7 @@ The interface is in Chinese with an English translation. Usage, keyboard shortcu
 ## Build from source
 
 ```bash
-git clone https://github.com/TerryG907/mu-lu.git mulu
+git clone https://github.com/TerryG907/mulu.git
 cd mulu
 swift build -c release
 .build/release/mulu --help
