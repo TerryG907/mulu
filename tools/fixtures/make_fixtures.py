@@ -474,6 +474,22 @@ def build_big_500p(out: Path, ctx):
     return {"description": "500 simple reportlab pages; apply must take < 1000 ms", "perf_limit_ms": 1000}
 
 
+def quartz_zero_offset_quirk(path: Path):
+    """Quartz-based producers (CGPDFContext, cupsfilter, sips) sometimes write in-use xref entries with
+    offset 0 for unreferenced objects. qpdf warns about them on the ORIGINAL file; mulu must tolerate
+    them. Returns (notes, allow_input_warnings)."""
+    data = path.read_bytes()
+    try:
+        sec = pdfraw.parse_xref_section(data, pdfraw.last_startxref(data))
+        zero = sorted(n for n, e in sec.entries.items() if e.type == 1 and e.f2 == 0)
+    except Exception:
+        zero = []
+    if not zero:
+        return "", False
+    return (f"Real Quartz quirk: in-use xref entries with offset 0 for object(s) {zero} (unreferenced); "
+            "qpdf warns on the ORIGINAL - mulu must tolerate this, not refuse."), True
+
+
 def build_cups_made(out: Path, ctx):
     exe = Path("/usr/sbin/cupsfilter")
     if not exe.exists():
@@ -499,7 +515,9 @@ def build_cups_made(out: Path, ctx):
         n = len(pdf.pages)
         producer = str(pdf.docinfo.get("/Producer", "")) if "/Info" in pdf.trailer else ""
     write_sidecars(out, "cups_made", spread(MANUAL, n), style=dict(indent="space", sep=" "))
-    return {"description": f"/usr/sbin/cupsfilter text/plain -> PDF, {n} pages (Producer: {producer})"}
+    notes, allow = quartz_zero_offset_quirk(out / "cups_made.pdf")
+    return {"description": f"/usr/sbin/cupsfilter text/plain -> PDF, {n} pages (Producer: {producer})",
+            "notes": notes, "allow_input_warnings": allow}
 
 
 def build_sips_made(out: Path, ctx):
@@ -518,7 +536,9 @@ def build_sips_made(out: Path, ctx):
     with pikepdf.open(out / "sips_made.pdf") as pdf:
         n = len(pdf.pages)
     write_sidecars(out, "sips_made", spread(MANUAL, n), style=dict(indent="tab", sep=" "))
-    return {"description": f"sips -s format pdf from a PNG ({n} page); every TOC entry targets page 1"}
+    notes, allow = quartz_zero_offset_quirk(out / "sips_made.pdf")
+    return {"description": f"sips -s format pdf from a PNG ({n} page); every TOC entry targets page 1",
+            "notes": notes, "allow_input_warnings": allow}
 
 
 # ---- extra positive fixtures (beyond the 12 in the brief) -------------------
