@@ -25,6 +25,11 @@ import Testing
         #expect(SmokeConfig(environment: ["MULU_SMOKE": "/x.pdf", "MULU_SMOKE_HOLD": "8"])?.hold == 8)
         #expect(SmokeConfig(environment: ["MULU_SMOKE": "/x.pdf", "MULU_SMOKE_HOLD": "999"])?.hold == 60)
         #expect(SmokeConfig(environment: ["MULU_SMOKE": "/x.pdf", "MULU_SMOKE_CLOSE": "1"])?.closeCheck == true)
+        #expect(c?.stop == nil)
+        #expect(SmokeConfig(environment: ["MULU_SMOKE": "/x.pdf", "MULU_SMOKE_STOP": "marked"])?.stop == .marked)
+        #expect(SmokeConfig(environment: ["MULU_SMOKE": "/x.pdf", "MULU_SMOKE_STOP": "result"])?.stop == .result)
+        #expect(SmokeConfig(environment: ["MULU_SMOKE": "/x.pdf", "MULU_SMOKE_STOP": "review"])?.stop == .review)
+        #expect(SmokeConfig(environment: ["MULU_SMOKE": "/x.pdf", "MULU_SMOKE_STOP": "later"])?.stop == nil)
     }
 
     /// The field names of GUI_SPEC §9.3, locked: sorted keys, nulls written out.
@@ -138,6 +143,17 @@ import Testing
         try SmokeRunner.write(report, to: config.output)
         let obj = try JSONSerialization.jsonObject(with: Data(contentsOf: json)) as! [String: Any]
         #expect(obj["status"] as? String == "ok" && obj["schema"] as? Int == 1)
+
+        // MULU_SMOKE_STOP=marked: the TOC pages are marked and shown; nothing is recognized or written
+        let unwritten = SyntheticBook.tempURL("smoke-stop-\(UUID().uuidString).pdf")
+        let marked = SmokeConfig(environment: [
+            "MULU_SMOKE": input.path, "MULU_SMOKE_TOC": "2-3", "MULU_SMOKE_STOP": "marked", "MULU_SMOKE_WRITE": unwritten.path,
+        ])!
+        let held = DocumentModel(url: target)
+        let stopped = await SmokeRunner.run(marked, document: held)
+        #expect(stopped.status == "ok" && stopped.recognition == nil && stopped.write == nil)
+        #expect(held.tocPages == [2, 3] && held.previewPage == 2)
+        #expect(!FileManager.default.fileExists(atPath: unwritten.path))
 
         // a failed open is an error report
         let missing = DocumentModel(url: SyntheticBook.tempURL("smoke-missing-\(UUID().uuidString).pdf"))

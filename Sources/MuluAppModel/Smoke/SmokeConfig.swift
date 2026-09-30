@@ -20,6 +20,21 @@ public struct SmokeConfig: Sendable, Hashable {
     /// MULU_SMOKE_HOLD seconds (0...60, default 0): keep the window open this long after the
     /// report is written, before quitting (for a screenshot of the state the run ended in).
     public var hold: Double = 0
+    /// MULU_SMOKE_STOP: end the run early, for a screenshot of an intermediate state together
+    /// with MULU_SMOKE_HOLD. Needs MULU_SMOKE_TOC; the preview shows the first TOC page.
+    /// Anything else (or unset) runs to the end.
+    public var stop: Stop?
+
+    public enum Stop: String, Sendable, Hashable {
+        /// The TOC pages are marked; nothing is recognized.
+        case marked
+        /// Recognition has finished and its result is left waiting (the app shows the result
+        /// panel); the draft stays empty and nothing is written.
+        case result
+        /// The result is in the draft and the review has started on its first doubtful row (on
+        /// the first row when none is doubtful); nothing is written.
+        case review
+    }
 
     public static let defaultTimeout = 20.0
 
@@ -40,6 +55,7 @@ public struct SmokeConfig: Sendable, Hashable {
         closeCheck = value("MULU_SMOKE_CLOSE") == "1"
         let h = value("MULU_SMOKE_HOLD").flatMap { Double($0) }.flatMap { $0.isFinite ? $0 : nil } ?? 0
         hold = min(60, max(0, h))
+        stop = value("MULU_SMOKE_STOP").flatMap { Stop(rawValue: $0) }
     }
 
     public init(target: Target, tocPages: String? = nil, knownOffset: Int? = nil, writeTo: URL? = nil, output: URL? = nil,

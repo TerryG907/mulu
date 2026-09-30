@@ -4,7 +4,7 @@ import Testing
 
 /// The progress hooks the app uses for progress and cancellation (GUI_SPEC §3.2): called in
 /// order, and an error thrown by the hook ends the work and comes out unchanged.
-@Suite(.serialized) struct ProgressHookTests {
+@Suite(.serialized, .needsVision) struct ProgressHookTests {
     struct Stop: Error, Equatable {}
 
     static func threeTOCPages() throws -> (URL, [SyntheticPDF.Entry]) {

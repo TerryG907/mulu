@@ -4,7 +4,9 @@ import MuluAppModel
 /// Drives one document through `SmokeRunner` (load → optional recognition → optional write),
 /// adds the app facts, writes the JSON and quits: 0 = ok, 1 = error (GUI_SPEC §9.3).
 /// With `MULU_SMOKE_CLOSE=1` it then closes the window and checks that the document is freed
-/// (`SmokeCloseProbe`: 0 = freed, 4 = still alive). No alerts or panels are shown in smoke mode.
+/// (`SmokeCloseProbe`: 0 = freed, 4 = still alive). No alerts or panels are shown in smoke mode;
+/// the one exception is `MULU_SMOKE_STOP=result` with a hold, which shows the recognition result
+/// panel for a screenshot.
 @MainActor
 enum SmokeDriver {
     static func run(_ config: SmokeConfig, session: DocumentSession, appState: AppState) async {
@@ -20,6 +22,10 @@ enum SmokeDriver {
         }
         guard report.status == "ok" else { exit(1) }
         if config.hold > 0 {
+            // MULU_SMOKE_STOP=result: show the result panel the recognition is waiting in.
+            if config.stop == .result, case .finished = session.model.recognition {
+                session.sheet = .recognize
+            }
             try? await Task.sleep(for: .seconds(config.hold))
         }
         if config.closeCheck {

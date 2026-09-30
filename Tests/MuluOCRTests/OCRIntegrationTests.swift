@@ -3,7 +3,7 @@ import Testing
 @testable import MuluOCR
 
 /// End-to-end Vision tests on generated black-and-white "scans" (see SyntheticPDF).
-@Suite(.serialized) struct OCRIntegrationTests {
+@Suite(.serialized, .needsVision) struct OCRIntegrationTests {
     static func squash(_ s: String) -> String { s.filter { !$0.isWhitespace } }
 
     static func similarity(_ a: String, _ b: String) -> Double {

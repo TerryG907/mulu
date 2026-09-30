@@ -1,0 +1,162 @@
+# CI: build, unit tests, the writer's cross-reader verification, and (on the Xcode 27 leg) a
+# packaging check. Needs no secrets.
+#
+# Two legs, because no hosted runner matches the machine Mulu is developed on
+# (macOS 26.6.2 with Xcode 27):
+#   macos-26  macOS 26 with Xcode 26.6 (Swift 6.3): the same macOS, an older compiler.
+#   xcode-27  macOS 27 with Xcode 27.0 (Swift 6.4): the same compiler, a newer macOS. This is the
+#             image the release workflow builds on, so only this leg runs scripts/package_app.sh:
+#             the script needs the compiled String Catalog, which `swift build` produces from
+#             Swift 6.4 on.
+#
+# The scanned-book evaluation (tools/run_all.sh --books) takes minutes of OCR and is not run here.
+name: CI
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["**.md", "docs/**", "LICENSE"]
+  pull_request:
+    branches: [main]
+    paths-ignore: ["**.md", "docs/**", "LICENSE"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: macOS 26, Xcode 26.6
+            runner: macos-26
+            xcode: /Applications/Xcode_26.6.app
+            package: false
+          - name: macOS 27, Xcode 27.0
+            runner: xcode-27
+            xcode: /Applications/Xcode_27.0.app
+            package: true
+    env:
+      XCODE_APP: ${{ matrix.xcode }}
+      # Set the repository variable MULU_SKIP_VISION_TESTS to 1 to skip the Vision tests without
+      # asking the probe below. Leave it unset to let the probe decide.
+      MULU_SKIP_VISION_TESTS: ${{ vars.MULU_SKIP_VISION_TESTS }}
+    steps:
+      - name: Check out
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Select Xcode
+        id: xcode
+        run: |
+          if [[ ! -d "$XCODE_APP" ]]; then
+            echo "::error title=Xcode not found::$XCODE_APP is not on this runner image."
+            ls -d /Applications/Xcode*.app || true
+            exit 1
+          fi
+          sudo xcode-select --switch "$XCODE_APP/Contents/Developer"
+          sw_vers
+          xcodebuild -version
+          swift --version
+          echo "arch: $(uname -m), cores: $(sysctl -n hw.ncpu), memory: $(( $(sysctl -n hw.memsize) / 1073741824 )) GB"
+          echo "build=$(xcodebuild -version | awk '/Build version/ { print $3 }')" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Node.js (for the pdf.js reader)
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      # astral-sh/setup-uv publishes no moving major tag after v7, so this is pinned to the commit
+      # of the v10.2.0 release.
+      - name: Set up uv (for the Python readers and the fixture generator)
+        uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          enable-cache: true
+          cache-dependency-glob: tools/**/*.py
+          ignore-nothing-to-cache: true
+
+      # The package has no dependencies to download. What this saves is the part of .build that
+      # survives a fresh checkout (module caches); the Swift sources are compiled again every
+      # time. The key names the Xcode build, so a new toolchain never reuses old products.
+      - name: Cache .build
+        uses: actions/cache@v6
+        with:
+          path: .build
+          key: spm-${{ matrix.runner }}-${{ steps.xcode.outputs.build }}-${{ hashFiles('Package.swift', 'Sources/**', 'Tests/**') }}
+          restore-keys: |
+            spm-${{ matrix.runner }}-${{ steps.xcode.outputs.build }}-
+
+      - name: Build
+        timeout-minutes: 15
+        run: swift build
+
+      # Vision text recognition does not work on every virtual Mac. The probe uses none of Mulu's
+      # code, so a bug in Mulu cannot switch the OCR tests off; when Vision itself fails here, the
+      # tests marked `.needsVision` are skipped and the run says so.
+      - name: Check whether Vision text recognition works on this runner
+        timeout-minutes: 5
+        run: |
+          if [[ -n "${MULU_SKIP_VISION_TESTS:-}" && "$MULU_SKIP_VISION_TESTS" != "0" ]]; then
+            echo "::notice title=Vision tests skipped::The repository variable MULU_SKIP_VISION_TESTS is set."
+            echo "Vision tests: skipped (repository variable MULU_SKIP_VISION_TESTS)" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          swiftc -O .github/scripts/vision_probe.swift -o "$RUNNER_TEMP/vision_probe"
+          if "$RUNNER_TEMP/vision_probe"; then
+            echo "Vision tests: run (the probe read its test lines)" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "MULU_SKIP_VISION_TESTS=1" >> "$GITHUB_ENV"
+            echo "::warning title=Vision tests skipped::Vision text recognition does not work on this runner (see the probe output), so the tests marked .needsVision are skipped here. They run on a real Mac with a plain swift test."
+            echo "Vision tests: SKIPPED (Vision text recognition does not work on this runner)" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Unit tests
+        timeout-minutes: 20
+        run: |
+          swift test 2>&1 | tee "$RUNNER_TEMP/swift-test.log"
+          {
+            echo '```'
+            grep -E "Test run with [0-9]+ tests?" "$RUNNER_TEMP/swift-test.log" || true
+            echo "skipped: $(grep -c -E "Test .* skipped" "$RUNNER_TEMP/swift-test.log" || true)"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: UI strings have English translations
+        run: uv run --quiet --python 3.12 scripts/check_strings.py
+
+      - name: Writer verification (tools/run_all.sh)
+        timeout-minutes: 25
+        run: tools/run_all.sh
+
+      - name: Packaging check (scripts/package_app.sh)
+        if: matrix.package
+        timeout-minutes: 10
+        run: |
+          scripts/package_app.sh --skip-build --version 0.0.0
+          test -f dist/Mulu-0.0.0-macos-arm64.zip
+
+      - name: Keep the verification reports when something failed
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: reports-${{ matrix.runner }}
+          path: |
+            Fixtures/out/report.json
+            Fixtures/out/regression/report.json
+          if-no-files-found: ignore
+          retention-days: 14

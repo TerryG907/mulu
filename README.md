@@ -1,12 +1,45 @@
+<p align="center"><img src="docs/images/icon-256.png" width="128" height="128" alt="Mulu app icon"></p>
+
 # Mulu（目录）
 
-给 PDF 加上可以点击的多级目录（书签），**原文件的字节一个都不改**。
+[![CI](https://github.com/TerryG907/mu-lu/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/TerryG907/mu-lu/actions/workflows/ci.yml)
 
-Mulu 是一个免费、开源（MIT）的 macOS 命令行工具，另有一个早期的图形界面（见[图形界面](#gui)）。它还能识别扫描书里印刷的目录页，自动算出页码偏移，一条命令把目录写进 PDF。
+给扫描版 PDF 加上可以点击的多级目录（书签），**原文件的字节一个都不改**。
 
-[English below](#english)
+![Mulu.app 演示：打开扫描书，标出目录页，识别成草稿，可疑条目标成橙色，逐条核对，写成新文件](docs/images/demo.gif)
 
-> **当前状态：预发布。** 命令行可用；图形界面是 v0.1，要自己从源码构建，没有公证。下面的准确率数字来自程序生成的「合成」PDF 和扫描书。**在 17 本真实公版扫描书上**：写入安全 17/17 通过；`mulu auto` 只在 1 本上自动写出了目录（页码全对），其余 16 本都拒绝了，没有写错一本。老式英文目录、页码偏移在书中间改变、竖排中文目录目前都做不了。详见 [docs/REALSCAN.md](docs/REALSCAN.md)。
+<sub>动图由 Mulu.app 各阶段的窗口截图拼成，用的是一本程序生成的合成扫描书（印刷整齐，不是真书）。真书上的自动识别弱得多，见下面的「当前状态」。</sub>
+
+[下载](#download) · [命令行用法](#usage) · [实测结果](#results) · [已知限制](#limits) · [English](#english)
+
+- **是什么**：免费、开源（MIT）的 Mac 工具，有图形界面（Mulu.app）和命令行（`mulu`）。它识别扫描书里印着的目录页，算出页码偏移，给出一份目录草稿；你改对之后，另存成一份带目录的新 PDF。全部在本机完成，不联网。
+- **给谁用**：手里有扫描版教材、专业书，却没有目录可点的人。常用的加书签工具 PDF补丁丁（PDFPatcher）只能在 Windows 上用；在 Mac 上用 PDFKit（「预览」也基于它）保存，会把整个文件重写一遍。
+- **有什么不同**：新文件 = 原文件的全部字节 + 末尾追加的一小段目录。我们测的 G4 压缩扫描件：PDFKit 重存后文件 +114.7%，Mulu 追加目录后 +0.35%（[完整对比](#why)）。
+- **怎么开始**：[下载 Mulu.app](#download)（Apple 芯片的 Mac，macOS 14 或更新），或者[从源码构建](#build)命令行和 App。
+
+> **当前状态：预发布。** 命令行可用；图形界面是 v0.1，只有 ad-hoc 签名，没有公证。上面的动图和下面的准确率数字都来自程序生成的「合成」PDF 和扫描书。**在 17 本真实公版扫描书上**：写入安全 17/17 通过；`mulu auto` 只在 1 本上自动写出了目录（页码全对），其余 16 本都拒绝了，没有写错一本。所以图形界面不追求一键成功，而是先给出草稿，再让人改对。老式英文目录、页码偏移在书中间改变、竖排中文目录，自动识别目前都做不了，只能在图形界面里手工改。详见 [docs/REALSCAN.md](docs/REALSCAN.md)。
+
+<a id="download"></a>
+
+## 下载
+
+不想装开发工具，可以直接下载打包好的图形界面：
+
+1. 到 [Releases](https://github.com/TerryG907/mu-lu/releases) 下载 `Mulu-<版本>-macos-arm64.zip`，解压得到 `Mulu.app`。
+2. 第一次打开会被系统拦住，因为 App 只有 ad-hoc 签名，没有 Developer ID，也没有公证：
+   - macOS 14：在 Finder 里右键点 App ▸ 打开 ▸ 再点「打开」。
+   - macOS 15 及以后：先双击一次（会被拦），再到「系统设置 ▸ 隐私与安全性」里点「仍要打开」。
+3. 把 PDF 拖进窗口（或按 ⌘O），照上面动图的顺序做。详细用法见 [docs/GUI.md](docs/GUI.md)。
+
+注意：
+
+- 只有 arm64（Apple 芯片），没有通用二进制；需要 macOS 14 或更新。
+- Releases 里的 zip 由 GitHub Actions 从对应标签的源码构建（[.github/workflows/release.yml](.github/workflows/release.yml)）。旁边的 `.sha256` 文件可以用来核对下载：`shasum -a 256 -c Mulu-<版本>-macos-arm64.zip.sha256`。
+- 下载后被拦的这条路径我们没有实测过，只测了本机构建。开发和测试只在 macOS 26.6.2 上做过，macOS 14、15 上没有跑过。
+- zip 里只有图形界面。命令行 `mulu` 要[从源码构建](#build)。
+- Releases 页还没有文件时，请按[图形界面](#gui)一节自己打包。
+
+<a id="why"></a>
 
 ## 为什么做 Mulu
 
@@ -48,6 +81,8 @@ Mulu 是一个免费、开源（MIT）的 macOS 命令行工具，另有一个�
 
 自动识别在真书上经常不成功，所以图形界面的思路是：先给出草稿，再让人快速改对。点一行，预览跳到那一页；改偏移，所有页码跟着变；最后另存成带目录的新 PDF，原文件不动。
 
+打包好的 App 见[下载](#download)。自己构建：
+
 ```bash
 swift run MuluApp          # 直接从源码运行
 scripts/package_app.sh     # 打包成 dist/Mulu.app（ad-hoc 签名，没有公证）
@@ -61,8 +96,11 @@ open dist/Mulu.app
 ## 系统要求
 
 - macOS 14 或更新
-- Swift 6 工具链（Xcode 16 或更新版本自带）
+- 构建命令行需要 Swift 6 工具链。我们只用 Xcode 27（Swift 6.4）构建过，更早的版本没有试过。
+- 打包 App（`scripts/package_app.sh`）需要 Xcode 27（Swift 6.4）：用更早的 SwiftPM 构建方式时，String Catalog 不会被编译，脚本会报错停下。
 - 开发和测试只在一台 Apple M5 Pro、macOS 26.6.2、Xcode 27 上做过。
+
+<a id="build"></a>
 
 ## 从源码构建
 
@@ -73,7 +111,9 @@ swift build -c release
 .build/release/mulu --help
 ```
 
-可执行文件在 `.build/release/mulu`。可以把它复制到 `PATH` 里的某个目录（例如 `/usr/local/bin`）；下面的例子都假设直接输入 `mulu` 就能运行。
+可执行文件在 `.build/release/mulu`。可以把它复制到 `PATH` 里的某个目录（例如 `/usr/local/bin`）；下面的例子都假设直接输入 `mulu` 就能运行。图形界面的构建和打包见[图形界面](#gui)。
+
+<a id="usage"></a>
 
 ## 用法
 
@@ -144,6 +184,8 @@ mulu dump-outline 书.pdf
 - 第一条必须在最外层；每一行最多比上一行深一级。
 - 文件用 UTF-8 编码，可以带 BOM。
 
+<a id="results"></a>
+
 ## 实测结果（全部是合成样例）
 
 > 下面的数字全部来自程序生成的 PDF 和合成扫描书：印刷整齐，没有真实纸张的阴影、弯曲和污渍。它们只说明「最好的情况下能做到什么」。真实扫描书的结果见 [docs/REALSCAN.md](docs/REALSCAN.md)。
@@ -181,6 +223,8 @@ mulu dump-outline 书.pdf
 
 详细记录：[docs/RESULTS.md](docs/RESULTS.md)（写入器）、[docs/WEEK1.md](docs/WEEK1.md)（扫描书流水线）。
 
+<a id="limits"></a>
+
 ## 已知限制
 
 - 真实扫描书上，自动目录只在 1/17 本上成功（其余拒绝，未写错），详见 [docs/REALSCAN.md](docs/REALSCAN.md)。现代横排简体中文教材还没在真书上测过。
@@ -203,6 +247,10 @@ tools/run_all.sh --books      # 另外跑扫描书流水线（慢；第一次还
 
 `tools/run_all.sh` 默认按 CPU 核数并行启动阅读器进程（最多 16 个）。想让电脑在跑测试时保持流畅，可以加 `--jobs 2`，例如 `tools/run_all.sh --books --jobs 2`。
 
+`swift test` 一共 240 个测试（其中 1 个和命令行逐字对比的测试默认不跑，设了 `MULU_PARITY` 才跑）。有 11 个要用 Vision 做文字识别，有些虚拟机跑不了 Vision；`MULU_SKIP_VISION_TESTS=1 swift test` 会跳过这 11 个，其余照常运行。
+
+CI（[.github/workflows/ci.yml](.github/workflows/ci.yml)）在改动代码的 push 和 PR 上跑 `swift build`、`swift test`、`scripts/check_strings.py` 和 `tools/run_all.sh`，不跑 `--books`。构建机上 Vision 不能用时，CI 会跳过那 11 个测试，并在运行记录里写明。
+
 ## 真实扫描闸门
 
 用你自己的扫描书检验 mulu：
@@ -221,7 +269,7 @@ tools/gate/run_gate.sh ~/你的书文件夹
 ## 路线图
 
 - 现在：已在 17 本公版扫描书上测过，下一步是支持老式英文目录（内容提要、课次范围）和分段页码偏移，并用现代中文教材验证。
-- 图形界面：v0.1 已经能用（[docs/GUI.md](docs/GUI.md)）。还缺公证、App 图标、草稿自动保存和分段偏移的自动检测。
+- 图形界面：v0.1 已经能用（[docs/GUI.md](docs/GUI.md)）。还缺公证、草稿自动保存和分段偏移的自动检测。
 
 ## 许可证
 
@@ -235,11 +283,42 @@ Mulu 与 PDF补丁丁（PDFPatcher）、pdfdir 和 Apple 均无关联；「预�
 
 # Mulu (English)
 
-Mulu adds a clickable, multi-level outline (bookmarks) to a PDF **without changing a single original byte**.
+Mulu adds a clickable, multi-level outline (bookmarks) to a scanned PDF **without changing a single original byte**.
 
-It is a free, open-source (MIT) command-line tool for macOS, with an early Mac app (see [Mac app](#gui-en)). It can also read the printed table of contents of a scanned book, work out the page offset, and write the outline in one command.
+![Mulu.app demo: open a scanned book, mark the contents pages, recognize them into a draft, doubtful rows flagged in orange, review them, save a new file](docs/images/demo.gif)
 
-> **Status: pre-release.** The command line works; the Mac app is v0.1, built from source, not notarized. The accuracy numbers below come from synthetic PDFs and synthetic scanned books. **On 17 real public-domain scans**, the writer passed 17/17; `mulu auto` wrote an outline for only 1 book (every page correct) and refused the other 16, writing no wrong outline. Old-style English TOCs, page offsets that change mid-book and vertical Chinese TOCs are not handled yet. See [docs/REALSCAN.md](docs/REALSCAN.md) (in Chinese).
+<sub>The animation is put together from window screenshots of Mulu.app at each stage, on a synthetic scanned book (generated, cleanly printed, not a real book). Automatic recognition is much weaker on real books; see Status below. The app is shown in Chinese and also has an English translation.</sub>
+
+[Download](#download-en) · [Command-line usage](#usage-en) · [Measured results](#results-en) · [Known limitations](#limits-en)
+
+- **What it is**: a free, open-source (MIT) Mac tool with an app (Mulu.app) and a command line (`mulu`). It reads the printed table of contents of a scanned book, works out the page offset and gives you a draft outline; you correct it, then save a new PDF with the outline. Everything runs on your Mac, with no network connection.
+- **Who it is for**: anyone with scanned textbooks or reference books and no outline to click. PDFPatcher (PDF补丁丁), a popular tool for adding bookmarks to scanned books, runs only on Windows; on a Mac, saving through PDFKit (which Preview is built on) rewrites the whole file.
+- **What is different**: the new file is every byte of the original followed by a small appended section with the outline. On our G4-compressed scan sample, a PDFKit resave made the file 114.7% larger; Mulu's append made it 0.35% larger ([full table](#why-en)).
+- **How to start**: [download Mulu.app](#download-en) (Apple silicon, macOS 14 or later), or [build](#build-en) the command line and the app from source.
+
+> **Status: pre-release.** The command line works; the Mac app is v0.1, ad-hoc signed and not notarized. The animation above and the accuracy numbers below come from synthetic PDFs and synthetic scanned books. **On 17 real public-domain scans**, the writer passed 17/17; `mulu auto` wrote an outline for only 1 book (every page correct) and refused the other 16, writing no wrong outline. That is why the app is built around a draft that you correct, not around one-click success. Old-style English TOCs, page offsets that change mid-book and vertical Chinese TOCs are not recognized automatically yet; they have to be fixed by hand in the app. See [docs/REALSCAN.md](docs/REALSCAN.md) (in Chinese).
+
+<a id="download-en"></a>
+
+## Download
+
+If you do not want to install developer tools, download the packaged app:
+
+1. Get `Mulu-<version>-macos-arm64.zip` from [Releases](https://github.com/TerryG907/mu-lu/releases) and unzip it; you get `Mulu.app`.
+2. macOS blocks the first launch, because the app is only ad-hoc signed (no Developer ID, not notarized):
+   - macOS 14: in Finder, right-click the app ▸ Open ▸ then click Open.
+   - macOS 15 and later: double-click it once (it is blocked), then go to System Settings ▸ Privacy & Security and click Open Anyway.
+3. Drop a PDF on the window (or press ⌘O) and follow the steps of the animation above. The full guide is [docs/GUI.md](docs/GUI.md) (in Chinese).
+
+Notes:
+
+- arm64 (Apple silicon) only, no universal binary; macOS 14 or later.
+- The zip under Releases is built by GitHub Actions from the tagged source ([.github/workflows/release.yml](.github/workflows/release.yml)). Check the download with the `.sha256` file next to it: `shasum -a 256 -c Mulu-<version>-macos-arm64.zip.sha256`.
+- We have not tested the blocked-download path ourselves, only locally built copies. Development and testing happened on macOS 26.6.2 only; the app has not been run on macOS 14 or 15.
+- The zip contains only the app. The `mulu` command line has to be [built from source](#build-en).
+- If the Releases page has no files yet, package the app yourself as described under [Mac app](#gui-en).
+
+<a id="why-en"></a>
 
 ## Why
 
@@ -281,6 +360,8 @@ Our measurements (PDFKit whole-file resave vs. Mulu append):
 
 Automatic recognition often fails on real books, so the app is built around a draft that you correct quickly. Click a row and the preview jumps to that page; change the offset and every page follows; then save a new PDF with the outline. The original file is never modified.
 
+The packaged app is under [Download](#download-en). To build it yourself:
+
 ```bash
 swift run MuluApp          # run from source
 scripts/package_app.sh     # build dist/Mulu.app (ad-hoc signed, not notarized)
@@ -292,8 +373,11 @@ The interface is in Chinese with an English translation. Usage, keyboard shortcu
 ## Requirements
 
 - macOS 14 or later
-- A Swift 6 toolchain (included with Xcode 16 or later)
+- Building the command line needs a Swift 6 toolchain. We have only built it with Xcode 27 (Swift 6.4); earlier versions are untried.
+- Packaging the app (`scripts/package_app.sh`) needs Xcode 27 (Swift 6.4): SwiftPM's older build system does not compile the String Catalog, and the script stops with an error.
 - Developed and tested only on one Apple M5 Pro with macOS 26.6.2 and Xcode 27.
+
+<a id="build-en"></a>
 
 ## Build from source
 
@@ -304,7 +388,9 @@ swift build -c release
 .build/release/mulu --help
 ```
 
-The binary is `.build/release/mulu`. Copy it to a directory on your `PATH` (for example `/usr/local/bin`); the examples below assume `mulu` runs it.
+The binary is `.build/release/mulu`. Copy it to a directory on your `PATH` (for example `/usr/local/bin`); the examples below assume `mulu` runs it. Building and packaging the app is described under [Mac app](#gui-en).
+
+<a id="usage-en"></a>
 
 ## Usage
 
@@ -375,6 +461,8 @@ Chapter 2 Method 11
 - The first entry must be at the top level, and a line can be at most one level deeper than the line before it.
 - The file is UTF-8, with or without a BOM.
 
+<a id="results-en"></a>
+
 ## Measured results (synthetic samples only)
 
 > Every number below comes from generated PDFs and synthetic scanned books: clean print, no shadows, curvature or stains from real paper. They show the best case. Real-scan results: [docs/REALSCAN.md](docs/REALSCAN.md).
@@ -412,6 +500,8 @@ Chapter 2 Method 11
 
 Full records (in Chinese): [docs/RESULTS.md](docs/RESULTS.md) (writer) and [docs/WEEK1.md](docs/WEEK1.md) (scanned-book pipeline).
 
+<a id="limits-en"></a>
+
 ## Known limitations
 
 - On real scans, `mulu auto` succeeded on 1 of 17 books (the rest were refused, none written wrong); see [docs/REALSCAN.md](docs/REALSCAN.md). Modern horizontal simplified-Chinese textbooks are still untested on real scans.
@@ -434,6 +524,10 @@ tools/run_all.sh --books      # also run the scanned-book pipeline (slow; the fi
 
 By default `tools/run_all.sh` starts reader processes in parallel, one per CPU core (at most 16). To keep the Mac responsive while the tests run, add `--jobs 2`, for example `tools/run_all.sh --books --jobs 2`.
 
+`swift test` has 240 tests (one of them, a byte-for-byte comparison with the command line, is off unless `MULU_PARITY` is set). 11 need Vision text recognition, which some virtual Macs cannot run; `MULU_SKIP_VISION_TESTS=1 swift test` skips those 11 and runs the rest.
+
+CI ([.github/workflows/ci.yml](.github/workflows/ci.yml)) runs `swift build`, `swift test`, `scripts/check_strings.py` and `tools/run_all.sh` on pushes and pull requests that change code; it does not run `--books`. When Vision does not work on the runner, CI skips those 11 tests and says so in the run.
+
 ## The real-scan gate
 
 Check mulu against your own scanned books:
@@ -452,7 +546,7 @@ Details (in Chinese): [tools/gate/README.md](tools/gate/README.md).
 ## Roadmap
 
 - Now: tested on 17 public-domain scans; next is support for old-style English TOCs (run-in synopses, lesson ranges), per-section page offsets, and validation on modern Chinese textbooks.
-- Mac app: v0.1 works ([docs/GUI.md](docs/GUI.md), in Chinese). Still missing: notarization, an app icon, draft autosave and automatic detection of per-section offsets.
+- Mac app: v0.1 works ([docs/GUI.md](docs/GUI.md), in Chinese). Still missing: notarization, draft autosave and automatic detection of per-section offsets.
 
 ## License
 

@@ -22,10 +22,12 @@ let package = Package(
         .target(name: "MuluAppModel", dependencies: ["MuluCore", "MuluOCR"]),
         .executableTarget(name: "mulu", dependencies: ["MuluCore", "MuluOCR"]),
         // The macOS app: SwiftUI App lifecycle, views, AppKit/PDFKit bridges.
-        // scripts/package_app.sh bundles the binary into dist/Mulu.app.
+        // scripts/package_app.sh bundles the binary into dist/Mulu.app. The app icon is not a
+        // SwiftPM resource: the script copies it into the app's Contents/Resources itself.
         .executableTarget(
             name: "MuluApp",
             dependencies: ["MuluAppModel", "MuluCore", "MuluOCR"],
+            exclude: ["Resources/AppIcon.icns"],
             resources: [.process("Resources/Localizable.xcstrings")]),
         .testTarget(name: "MuluCoreTests", dependencies: ["MuluCore"]),
         .testTarget(name: "MuluOCRTests", dependencies: ["MuluOCR"]),

@@ -608,7 +608,7 @@ WindowGroup(id: "document", for: URL.self) { $url in
 
 - `DocumentModel` 全部在主 actor。重活（打开解析、识别、写入、缩略图）在 `Task.detached` 或 actor 里做，只传 Sendable 值（URL、页码、`OutlineDraft`、`[TOCEntry]`、结果结构体），**不要**把 `DocumentModel`、`PDFFile`、`TOCPageReader`、`PDFDocument` 捕获进后台闭包。
 - `TOCPageReader`/`OffsetDetector`/`HeadingLocator`/`PDFRasterizer` 不是线程安全的：流水线在一个后台任务里顺序创建和使用；缩略图用自己的 `CGPDFDocument`（在 `ThumbnailRenderer` actor 内）；预览用 PDFKit 自己的文档。同一文件同时有三个独立的 CoreGraphics 文档实例，这是有意的。
-- 不用 `@concurrent`（需要 Swift 6.2；README 承诺 Xcode 16 也能构建）。
+- 不用 `@concurrent`（需要 Swift 6.2，而 Package.swift 声明的工具版本是 6.0）。
 - 若 SDK 里 `CGImage` 不是 Sendable，用 `ThumbnailImage: @unchecked Sendable` 包一层（§10）。
 
 ---
@@ -713,7 +713,7 @@ WindowGroup(id: "document", for: URL.self) { $url in
 2. `rm -rf dist/Mulu.app`；建 `Contents/MacOS`、`Contents/Resources`。
 3. `cp "$BIN/MuluApp" dist/Mulu.app/Contents/MacOS/Mulu`。
 4. 资源：`cp -R "$BIN/mulu_MuluApp.bundle" Contents/Resources/`（F5，防止任何 `Bundle.module` 访问崩溃）；建 `Contents/Resources/en.lproj` 和 `zh-Hans.lproj`，把资源包里的 `en.lproj/Localizable.strings`（及 `*.stringsdict`）复制进 `en.lproj/`（§7.1）。
-5. 写 Info.plist（§8.3，`VERSION`、`BUILD = git rev-list --count HEAD`，失败则 1），`plutil -lint`。可选：`Resources/AppIcon.icns` 存在时复制并加 `CFBundleIconFile`（P2）。
+5. 写 Info.plist（§8.3，`VERSION`、`BUILD = git rev-list --count HEAD`，失败则 1），`plutil -lint`。图标：把 `Sources/MuluApp/Resources/AppIcon.icns` 复制到 `Contents/Resources/`，Info.plist 里写 `CFBundleIconFile = AppIcon`；文件不存在就报错退出。这个文件由 `swift scripts/make_icon.swift` 用 CoreGraphics 画出来（16–512 pt，@1x 和 @2x），已提交；它在 Package.swift 里从 `MuluApp` 目标中排除（`exclude`），不进 SwiftPM 资源包。
 6. 签名：`codesign --force --sign - --options runtime --timestamp=none dist/Mulu.app`，然后 `codesign --verify --strict --verbose=2 dist/Mulu.app`。不需要任何 entitlements（不沙盒；Vision、CoreGraphics、PDFKit、文件读写都不需要权限声明）。
 7. 压缩：`ditto -c -k --sequesterRsrc --keepParent dist/Mulu.app dist/Mulu-$VERSION-macos-arm64.zip`；`shasum -a 256`。
 8. 打印产物路径、大小、架构（`lipo -archs`）。
@@ -726,6 +726,7 @@ v0.1 只出 arm64（本机架构）。通用二进制需要 `swift build --arch 
 dist/Mulu.app/Contents/
   Info.plist
   MacOS/Mulu
+  Resources/AppIcon.icns
   Resources/en.lproj/Localizable.strings
   Resources/zh-Hans.lproj/            (空目录)
   Resources/mulu_MuluApp.bundle/
@@ -756,6 +757,7 @@ dist/Mulu.app/Contents/
   <key>NSSupportsAutomaticTermination</key><false/>
   <key>NSSupportsSuddenTermination</key><false/>
   <key>NSHumanReadableCopyright</key><string>© 2026 TerryG907. MIT License.</string>
+  <key>CFBundleIconFile</key><string>AppIcon</string>
   <key>CFBundleDocumentTypes</key>
   <array>
     <dict>
@@ -826,6 +828,7 @@ MuluApp 没有单元测试目标（SwiftUI 视图、AppKit 桥接），靠：`sw
 | `MULU_SMOKE_OUT` | JSON 输出路径（原子写）；未设置时打印到 stdout |
 | `MULU_SMOKE_TIMEOUT` | 秒，默认 20，夹在 5–120 |
 | `MULU_SMOKE_HOLD` | 可选，秒（0–60，默认 0）：写完 JSON 后窗口再保留这么久才退出（截图用） |
+| `MULU_SMOKE_STOP` | 可选，截图用，要配合 `MULU_SMOKE_TOC` 和 `MULU_SMOKE_HOLD`：`marked` = 只把目录页标上，不识别；`result` = 识别完停在结果面板，不采用、不写入；`review` = 采用结果后进入审阅（有可疑条目时只看可疑的），不写入。三种都会把预览翻到第一张目录页（`review` 随后跟着审阅的那一行走）。其他值或不设：照常跑完 |
 | `MULU_SMOKE_CLOSE` | 可选，`1`：写完 JSON 后像点关闭按钮一样关掉窗口，确认会话、模型、PDFKit 文档和缩略图渲染器都被释放；退出码 0 = 已释放，4 = 关窗 4 秒后仍在内存里（stderr 有一行说明） |
 
 行为：`AppDelegate` 读到配置 → 设 `appState.smoke` → 启动窗口接管 `MULU_SMOKE` 的 URL（与正常打开走同一路径）→ `SmokeRunner.run(config, document:)`：`await load()` → 可选识别（`waitForRecognition`）→ 可选写入 → 生成 `SmokeReport` → App 层补上 `app` 字段 → 写 JSON → `NSApp.terminate(nil)`。看门狗：`DispatchQueue.main.asyncAfter(timeout − 0.5 s)` 若还没写 JSON，就写 `status: "timeout"` 并 `exit(3)`。烟雾模式下不弹任何警告框、保存面板，不做退出确认，不读写 `MULU_SMOKE_OUT`/`MULU_SMOKE_WRITE` 以外的文件。退出码：0 = ok，1 = error，3 = timeout。
@@ -1348,7 +1351,7 @@ public struct SmokeReport: Sendable, Hashable, Codable {
 | NSTableView 与 SwiftUI 状态双向同步产生循环 | 协调器用「程序正在设置」标志；只按 `revision` 刷新 |
 | 用户把输出文件名选成原文件 | 面板 delegate 校验 + `write` 内再次校验（(device, inode) 比较），双保险 |
 
-v0.2 候选：auto 启发式抽成共享目标并让 `mulu auto` 调用；导入时把 `# ?` 注释恢复为可疑原因；印刷页码列内编辑；拖动排序；草稿自动保存；最近打开菜单；App 图标；通用二进制；公证；分段偏移的自动检测（REALSCAN 里 3 本书的失败原因）；竖排目录。
+v0.2 候选：auto 启发式抽成共享目标并让 `mulu auto` 调用；导入时把 `# ?` 注释恢复为可疑原因；印刷页码列内编辑；拖动排序；草稿自动保存；最近打开菜单；通用二进制；公证；分段偏移的自动检测（REALSCAN 里 3 本书的失败原因）；竖排目录。
 
 ---
 

@@ -31,6 +31,9 @@ import Foundation
         if let spec = config.tocPages {
             do {
                 try document.setTOCPages(spec: spec)
+                // A stopped run is for a screenshot: show the first TOC page, as a user would have.
+                if config.stop != nil, let first = document.tocPages.first { document.requestPreview(page: first) }
+                if config.stop == .marked { return finish(nil) }
                 try document.startRecognition(pages: document.tocPages, knownOffset: config.knownOffset)
             } catch {
                 return finish("recognition: \(error)")
@@ -40,7 +43,12 @@ import Foundation
             report.recognition = recognitionPart(state, pages: document.tocPages)
             switch state {
             case .finished:
+                if config.stop == .result { return finish(nil) }
                 document.acceptRecognition(.replace)
+                if config.stop == .review {
+                    document.startReview(onlyDoubtful: document.counts.doubtful + document.counts.errors > 0)
+                    return finish(nil)
+                }
             case .failed(let why):
                 return finish("recognition failed: \(why)")
             case .cancelled:

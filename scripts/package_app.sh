@@ -60,12 +60,11 @@ if [[ $STRINGS_FOUND -eq 0 ]]; then
   echo "package_app: no en.lproj strings in $RESOURCES; the English UI would be missing" >&2
   exit 1
 fi
-if [[ -f "$ROOT/Resources/AppIcon.icns" ]]; then
-  cp "$ROOT/Resources/AppIcon.icns" "$APP/Contents/Resources/AppIcon.icns"
-  ICON_ENTRY="  <key>CFBundleIconFile</key><string>AppIcon</string>"
-else
-  ICON_ENTRY=""
-fi
+# App icon: drawn by scripts/make_icon.swift and committed; excluded from the SwiftPM target, so
+# it is copied from the source tree.
+ICON="$ROOT/Sources/MuluApp/Resources/AppIcon.icns"
+[[ -f "$ICON" ]] || { echo "package_app: $ICON not found (run: swift scripts/make_icon.swift)" >&2; exit 1; }
+cp "$ICON" "$APP/Contents/Resources/AppIcon.icns"
 
 # 5. Info.plist (GUI_SPEC §8.3).
 BUILD="$(git -C "$ROOT" rev-list --count HEAD 2>/dev/null || echo 1)"
@@ -91,7 +90,7 @@ cat > "$APP/Contents/Info.plist" <<PLIST
   <key>NSSupportsAutomaticTermination</key><false/>
   <key>NSSupportsSuddenTermination</key><false/>
   <key>NSHumanReadableCopyright</key><string>© 2026 TerryG907. MIT License.</string>
-${ICON_ENTRY}
+  <key>CFBundleIconFile</key><string>AppIcon</string>
   <key>CFBundleDocumentTypes</key>
   <array>
     <dict>
@@ -119,6 +118,7 @@ ditto -c -k --sequesterRsrc --keepParent "$APP" "$ZIP"
 echo
 echo "App:     $APP ($(du -sh "$APP" | cut -f1))"
 echo "Arch:    $(lipo -archs "$APP/Contents/MacOS/Mulu")"
+echo "Icon:    Contents/Resources/AppIcon.icns ($(du -h "$APP/Contents/Resources/AppIcon.icns" | cut -f1))"
 echo "Version: $VERSION (build $BUILD)"
 echo "Zip:     $ZIP ($(du -h "$ZIP" | cut -f1))"
 echo "SHA-256: $(shasum -a 256 "$ZIP" | cut -d' ' -f1)"

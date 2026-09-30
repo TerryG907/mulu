@@ -23,7 +23,7 @@ Mulu.app 是 Mulu 的 Mac 图形界面：打开一本 PDF，把目录整理对�
 
 ## 构建和运行
 
-需要 macOS 14 或更新、Swift 6 工具链（Xcode 16 或更新）。不需要 Homebrew，也不需要 Xcode 工程：App 是 SwiftPM 的一个可执行目标（`MuluApp`）。
+需要 macOS 14 或更新、Swift 6 工具链。我们只用 Xcode 27（Swift 6.4）构建过；打包脚本需要 Xcode 27，因为更早的 SwiftPM 构建方式不编译 String Catalog，脚本会报错停下。不需要 Homebrew，也不需要 Xcode 工程：App 是 SwiftPM 的一个可执行目标（`MuluApp`）。
 
 **直接从源码运行**（开发时用）：
 
@@ -40,7 +40,18 @@ scripts/package_app.sh            # 生成 dist/Mulu.app 和 dist/Mulu-0.1.0-mac
 open dist/Mulu.app
 ```
 
-脚本做的事：`swift build -c release --product MuluApp` → 组装 App 包（可执行文件、资源、Info.plist）→ ad-hoc 签名 → 压成 zip 并打印 SHA-256。用 `--version 0.1.1` 改版本号，`--skip-build` 跳过构建。release 构建在 M5 Pro 上不到 1 分钟。
+脚本做的事：`swift build -c release --product MuluApp` → 组装 App 包（可执行文件、资源、图标、Info.plist）→ ad-hoc 签名 → 压成 zip 并打印 SHA-256。用 `--version 0.1.1` 改版本号，`--skip-build` 跳过构建。release 构建在 M5 Pro 上不到 1 分钟。
+
+App 图标是 `scripts/make_icon.swift` 用 CoreGraphics 画的，生成的 `Sources/MuluApp/Resources/AppIcon.icns` 已经提交，打包时直接复制。只有改图标时才需要重新运行 `swift scripts/make_icon.swift`。
+
+**重新生成 README 顶上的动图**（只有界面变了才需要）：
+
+```bash
+scripts/package_app.sh
+uv run --python 3.12 scripts/make_demo_gif.py     # 写到 docs/images/demo.gif
+```
+
+脚本用烟雾模式（`MULU_SMOKE_STOP=marked|result|review`，见 [GUI_SPEC.md](GUI_SPEC.md) §9.3）让 App 停在每个阶段，用 `screencapture -l` 截窗口，再拼成 GIF。需要 `Fixtures/books`（`tools/run_all.sh --books` 会生成）和终端的「屏幕录制」权限；运行时前台要是普通桌面，不能是全屏 App。
 
 界面语言跟随系统。想强制中文：
 
@@ -186,7 +197,7 @@ open dist/Mulu.app --args -AppleLanguages "(zh-Hans)"
 | `swift build -c release` | 通过 |
 | `swift test` | 240 个测试全部通过：MuluCore 132、MuluOCR 56、MuluAppModel 52 |
 | `tools/run_all.sh` | 31/31 + 47/47，`ALL PASS`（写入器行为没有改动） |
-| `scripts/package_app.sh` | 生成 `dist/Mulu.app`（4.9 MB，arm64）和 zip（1.5 MB），签名校验通过 |
+| `scripts/package_app.sh` | 生成 `dist/Mulu.app`（5.4 MB，arm64，带图标）和 zip（2.0 MB），签名校验通过 |
 | `scripts/smoke_app.sh --app dist/Mulu.app` | 18/18 |
 | `scripts/check_strings.py` | 362 条中文界面文字都有英文翻译 |
 
@@ -231,7 +242,7 @@ open dist/Mulu.app --args -AppleLanguages "(zh-Hans)"
 
 ## 已知限制
 
-- **没有公证，只有 ad-hoc 签名**，见上面「关于签名」。只有 arm64，没有通用二进制。没有 App 图标。
+- **没有公证，只有 ad-hoc 签名**，见上面「关于签名」。只有 arm64，没有通用二进制。
 - **自动识别在真书上很弱**（17 本里 1 本自动成功）。界面的价值在改草稿，不在一键成功。竖排目录、老式英文目录基本要手工录入或粘贴。
 - **偏移在书中间改变时不会自动发现**，只会提示「偏移可能在书中间改变」，要自己找到错开的那一章，用「从这一行起按这一页校准」。
 - **不能覆盖原文件**，总是另存。加密的 PDF 不能打开。

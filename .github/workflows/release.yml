@@ -1,0 +1,178 @@
+# Release: pushing a tag such as v0.1.0 builds Mulu.app on an Apple silicon runner, packages it
+# with scripts/package_app.sh and publishes dist/Mulu-<version>-macos-arm64.zip with its SHA-256
+# as a GitHub Release. Needs no secrets: the app is signed ad hoc, not notarized.
+#
+# "Run workflow" (workflow_dispatch) builds the same zip for a version you type and keeps it as a
+# workflow artifact. It never publishes anything, so it is the way to try this workflow out.
+#
+# The build job only reads the repository. Only the publish job, which runs nothing from the
+# repository, may write releases.
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version to build without publishing, for example 0.1.0
+        required: true
+        default: 0.0.0
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    name: Build Mulu.app
+    # Apple silicon, Xcode 27 (Swift 6.4): scripts/package_app.sh needs the String Catalog compiled
+    # into .strings files, which `swift build` does from Swift 6.4 on. With Xcode 26 the script
+    # stops with "no en.lproj strings".
+    runs-on: xcode-27
+    timeout-minutes: 30
+    env:
+      XCODE_APP: /Applications/Xcode_27.0.app
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      tag: ${{ steps.version.outputs.tag }}
+    steps:
+      - name: Check out
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0 # scripts/package_app.sh uses the commit count as the build number
+          persist-credentials: false
+
+      - name: Version
+        id: version
+        env:
+          EVENT: ${{ github.event_name }}
+          REF_NAME: ${{ github.ref_name }}
+          INPUT_VERSION: ${{ inputs.version }}
+        run: |
+          if [[ "$EVENT" == "push" ]]; then
+            version="${REF_NAME#v}"
+            source="tag '$REF_NAME'"
+          else
+            version="$INPUT_VERSION"
+            source="version '$INPUT_VERSION'"
+          fi
+          if ! [[ "$version" =~ ^[0-9]+(\.[0-9]+){1,2}$ ]]; then
+            echo "::error title=Bad version::$source: a release tag must look like v0.1.0 (version 0.1.0). Suffixes such as -rc1 are not supported by scripts/package_app.sh."
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "tag=v$version" >> "$GITHUB_OUTPUT"
+          echo "Mulu $version"
+
+      - name: Select Xcode
+        run: |
+          if [[ "$(uname -m)" != "arm64" ]]; then
+            echo "::error title=Wrong architecture::this runner is $(uname -m); Mulu.app is built for arm64 only."
+            exit 1
+          fi
+          if [[ ! -d "$XCODE_APP" ]]; then
+            echo "::error title=Xcode not found::$XCODE_APP is not on this runner image."
+            ls -d /Applications/Xcode*.app || true
+            exit 1
+          fi
+          sudo xcode-select --switch "$XCODE_APP/Contents/Developer"
+          sw_vers
+          xcodebuild -version
+          swift --version
+
+      - name: Build and package
+        timeout-minutes: 20
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: scripts/package_app.sh --version "$VERSION"
+
+      - name: Check the zip, write its SHA-256 and the release notes
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+          TAG: ${{ steps.version.outputs.tag }}
+          REPO_URL: ${{ github.server_url }}/${{ github.repository }}
+        run: |
+          zip="Mulu-$VERSION-macos-arm64.zip"
+          test -f "dist/$zip"
+
+          # Unpack the zip the way a user would and check what is inside.
+          work="$RUNNER_TEMP/unpacked"
+          rm -rf "$work"
+          mkdir -p "$work"
+          ditto -x -k "dist/$zip" "$work"
+          app="$work/Mulu.app"
+          codesign --verify --strict --verbose=2 "$app"
+          archs="$(lipo -archs "$app/Contents/MacOS/Mulu")"
+          packed="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$app/Contents/Info.plist")"
+          echo "architectures: $archs, version: $packed"
+          [[ "$archs" == "arm64" ]] || { echo "::error::expected arm64, got '$archs'"; exit 1; }
+          [[ "$packed" == "$VERSION" ]] || { echo "::error::Info.plist says $packed, expected $VERSION"; exit 1; }
+
+          (cd dist && shasum -a 256 "$zip" > "$zip.sha256")
+          sha="$(cut -d' ' -f1 "dist/$zip.sha256")"
+          sed -e "s|@ZIP@|$zip|g" -e "s|@TAG@|$TAG|g" -e "s|@SHA256@|$sha|g" -e "s|@REPO_URL@|$REPO_URL|g" \
+            .github/release_notes.md > dist/RELEASE_NOTES.md
+          if grep -n '@[A-Z0-9_]*@' dist/RELEASE_NOTES.md; then
+            echo "::error::a placeholder in .github/release_notes.md was not filled in"
+            exit 1
+          fi
+          {
+            echo "### Mulu $VERSION"
+            echo
+            echo "\`$zip\` ($(du -h "dist/$zip" | cut -f1 | tr -d ' '))"
+            echo
+            echo "SHA-256: \`$sha\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Keep the zip as a workflow artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: Mulu-${{ steps.version.outputs.version }}-macos-arm64
+          path: |
+            dist/Mulu-${{ steps.version.outputs.version }}-macos-arm64.zip
+            dist/Mulu-${{ steps.version.outputs.version }}-macos-arm64.zip.sha256
+            dist/RELEASE_NOTES.md
+          if-no-files-found: error
+          retention-days: 14
+
+  publish:
+    name: Publish the GitHub Release
+    needs: build
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Fetch the zip
+        uses: actions/download-artifact@v8
+        with:
+          name: Mulu-${{ needs.build.outputs.version }}-macos-arm64
+          path: dist
+
+      - name: Create the release, or update it when the tag already has one
+        working-directory: dist
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          VERSION: ${{ needs.build.outputs.version }}
+          TAG: ${{ needs.build.outputs.tag }}
+        run: |
+          zip="Mulu-$VERSION-macos-arm64.zip"
+          sha256sum --check "$zip.sha256"
+          if gh release view "$TAG" > /dev/null 2>&1; then
+            gh release upload "$TAG" "$zip" "$zip.sha256" --clobber
+            gh release edit "$TAG" --title "Mulu $VERSION" --notes-file RELEASE_NOTES.md
+          else
+            gh release create "$TAG" "$zip" "$zip.sha256" --verify-tag --title "Mulu $VERSION" \
+              --notes-file RELEASE_NOTES.md --generate-notes
+          fi
+          gh release view "$TAG" --json url --jq .url >> "$GITHUB_STEP_SUMMARY"

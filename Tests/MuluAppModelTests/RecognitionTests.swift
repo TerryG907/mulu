@@ -22,7 +22,7 @@ import Testing
         }.value
     }
 
-    @Test func recognizesTheSyntheticScannedBook() async throws {
+    @Test(.needsVision) func recognizesTheSyntheticScannedBook() async throws {
         let book = try await Self.makeBook(name: "rec-\(UUID().uuidString)")
         let out = SyntheticBook.tempURL("rec-out-\(UUID().uuidString).pdf")
         defer { SyntheticBook.remove(book.url, out) }
@@ -70,7 +70,7 @@ import Testing
         #expect(items.map(\.level) == book.entries.map(\.level))
     }
 
-    @Test func cancelStopsAtTheNextPage() async throws {
+    @Test(.needsVision) func cancelStopsAtTheNextPage() async throws {
         let book = try await Self.makeBook(tocCopies: 6, name: "cancel-\(UUID().uuidString)")
         defer { SyntheticBook.remove(book.url) }
         #expect(book.tocPages == [2, 3, 4, 5, 6, 7])
@@ -105,7 +105,7 @@ import Testing
         #expect(r.rows.count == 3 && r.mapping.offset == 3 && r.offsetInfo.source == .given)
     }
 
-    @Test func unknownOffsetStillGivesADraft() async throws {
+    @Test(.needsVision) func unknownOffsetStillGivesADraft() async throws {
         // No folios and no running heads: the offset cannot be read anywhere (and the detector
         // has no ink to re-read, which keeps the test fast).
         let book = try await Self.makeBook(folios: false, runningHeads: false, name: "nofolio-\(UUID().uuidString)")
