@@ -249,7 +249,7 @@ tools/run_all.sh --books      # 另外跑扫描书流水线（慢；第一次还
 
 `swift test` 一共 240 个测试（其中 1 个和命令行逐字对比的测试默认不跑，设了 `MULU_PARITY` 才跑）。有 11 个要用 Vision 做文字识别，有些虚拟机跑不了 Vision；`MULU_SKIP_VISION_TESTS=1 swift test` 会跳过这 11 个，其余照常运行。
 
-CI（[.github/workflows/ci.yml](.github/workflows/ci.yml)）在改动代码的 push 和 PR 上跑 `swift build`、`swift test`、`scripts/check_strings.py` 和 `tools/run_all.sh`，不跑 `--books`。构建机上 Vision 不能用时，CI 会跳过那 11 个测试，并在运行记录里写明。
+CI（[.github/workflows/ci.yml](.github/workflows/ci.yml)）在改动代码的 push 和 PR 上跑 `swift build`、`swift test`、`scripts/check_strings.py` 和 `tools/run_all.sh`，不跑 `--books`。GitHub 的构建机是没有显卡加速的虚拟机，Vision 要么不能用、要么极慢，所以 CI 一律跳过那 11 个测试；它们只在真实的 Mac 上跑。
 
 ## 真实扫描闸门
 
@@ -526,7 +526,7 @@ By default `tools/run_all.sh` starts reader processes in parallel, one per CPU c
 
 `swift test` has 240 tests (one of them, a byte-for-byte comparison with the command line, is off unless `MULU_PARITY` is set). 11 need Vision text recognition, which some virtual Macs cannot run; `MULU_SKIP_VISION_TESTS=1 swift test` skips those 11 and runs the rest.
 
-CI ([.github/workflows/ci.yml](.github/workflows/ci.yml)) runs `swift build`, `swift test`, `scripts/check_strings.py` and `tools/run_all.sh` on pushes and pull requests that change code; it does not run `--books`. When Vision does not work on the runner, CI skips those 11 tests and says so in the run.
+CI ([.github/workflows/ci.yml](.github/workflows/ci.yml)) runs `swift build`, `swift test`, `scripts/check_strings.py` and `tools/run_all.sh` on pushes and pull requests that change code; it does not run `--books`. GitHub-hosted runners are virtual Macs without GPU acceleration, where Vision either fails or is extremely slow, so CI always skips those 11 tests; they run only on a real Mac.
 
 ## The real-scan gate
 

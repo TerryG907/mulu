@@ -116,32 +116,50 @@ jobs:
             echo "Vision tests: skipped (repository variable MULU_SKIP_VISION_TESTS)" >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
+          # Hosted runners are virtual Macs without GPU acceleration. On the macOS 27 image Vision text
+          # recognition fails outright; on the macOS 26 image it works but the OCR tests ran for more
+          # than 15 minutes without finishing. So the OCR tests are always skipped here and the probe
+          # only records what this runner can do. They run on a real Mac with a plain `swift test`.
           swiftc -O .github/scripts/vision_probe.swift -o "$RUNNER_TEMP/vision_probe"
-          if "$RUNNER_TEMP/vision_probe"; then
-            echo "Vision tests: run (the probe read its test lines)" >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "MULU_SKIP_VISION_TESTS=1" >> "$GITHUB_ENV"
-            echo "::warning title=Vision tests skipped::Vision text recognition does not work on this runner (see the probe output), so the tests marked .needsVision are skipped here. They run on a real Mac with a plain swift test."
-            echo "Vision tests: SKIPPED (Vision text recognition does not work on this runner)" >> "$GITHUB_STEP_SUMMARY"
-          fi
+          start=$(date +%s)
+          if "$RUNNER_TEMP/vision_probe"; then probe="works ($(( $(date +%s) - start )) s for the probe page)"; else probe="does not work"; fi
+          echo "MULU_SKIP_VISION_TESTS=1" >> "$GITHUB_ENV"
+          echo "::notice title=Vision tests skipped::Vision text recognition ${probe} on this runner. The tests marked .needsVision are skipped on hosted runners and run on a real Mac."
+          echo "Vision tests: SKIPPED on hosted runners (probe: Vision ${probe})" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Unit tests
         timeout-minutes: 20
         run: |
-          swift test 2>&1 | tee "$RUNNER_TEMP/swift-test.log"
+          status=0
+          swift test 2>&1 | tee "$RUNNER_TEMP/swift-test.log" || status=$?
+          if [[ $status -ne 0 ]]; then
+            body=$(grep -E "✘|error:|failed|Fatal|crash" "$RUNNER_TEMP/swift-test.log" | head -30 | cut -c1-220 | sed -e 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
+            [[ -z "$body" ]] && body=$(tail -30 "$RUNNER_TEMP/swift-test.log" | cut -c1-220 | sed -e 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
+            echo "::error title=swift test failed::${body}"
+          fi
           {
             echo '```'
             grep -E "Test run with [0-9]+ tests?" "$RUNNER_TEMP/swift-test.log" || true
             echo "skipped: $(grep -c -E "Test .* skipped" "$RUNNER_TEMP/swift-test.log" || true)"
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
+          exit $status
 
       - name: UI strings have English translations
         run: uv run --quiet --python 3.12 scripts/check_strings.py
 
       - name: Writer verification (tools/run_all.sh)
         timeout-minutes: 25
-        run: tools/run_all.sh
+        run: |
+          status=0
+          tools/run_all.sh 2>&1 | tee "$RUNNER_TEMP/run-all.log" || status=$?
+          if [[ $status -ne 0 ]]; then
+            body=$(grep -E "FAIL|BROKEN|Traceback|Error|error:|mismatch|not found|No such file" "$RUNNER_TEMP/run-all.log" | head -30 | cut -c1-240 | sed -e 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
+            echo "::error title=run_all.sh failing rows::${body}"
+            tailbody=$(tail -25 "$RUNNER_TEMP/run-all.log" | cut -c1-240 | sed -e 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
+            echo "::error title=run_all.sh last lines::${tailbody}"
+          fi
+          exit $status
 
       - name: Packaging check (scripts/package_app.sh)
         if: matrix.package
