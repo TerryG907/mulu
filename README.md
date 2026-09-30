@@ -25,7 +25,7 @@
 
 不想装开发工具，可以直接下载打包好的图形界面：
 
-1. 到 [Releases](https://github.com/TerryG907/mulu/releases) 下载 `Mulu-<版本>-macos-arm64.zip`，解压得到 `Mulu.app`。
+1. 到 [Releases](https://github.com/TerryG907/mulu/releases/latest) 下载 `Mulu-<版本>-macos-arm64.zip`，解压得到 `Mulu.app`。
 2. 第一次打开会被系统拦住，因为 App 只有 ad-hoc 签名，没有 Developer ID，也没有公证：
    - macOS 14：在 Finder 里右键点 App ▸ 打开 ▸ 再点「打开」。
    - macOS 15 及以后：先双击一次（会被拦），再到「系统设置 ▸ 隐私与安全性」里点「仍要打开」。
@@ -37,7 +37,6 @@
 - Releases 里的 zip 由 GitHub Actions 从对应标签的源码构建（[.github/workflows/release.yml](.github/workflows/release.yml)）。旁边的 `.sha256` 文件可以用来核对下载：`shasum -a 256 -c Mulu-<版本>-macos-arm64.zip.sha256`。
 - 下载后被拦的这条路径我们没有实测过，只测了本机构建。开发和测试只在 macOS 26.6.2 上做过，macOS 14、15 上没有跑过。
 - zip 里只有图形界面。命令行 `mulu` 要[从源码构建](#build)。
-- Releases 页还没有文件时，请按[图形界面](#gui)一节自己打包。
 
 <a id="why"></a>
 
@@ -304,7 +303,7 @@ Mulu adds a clickable, multi-level outline (bookmarks) to a scanned PDF **withou
 
 If you do not want to install developer tools, download the packaged app:
 
-1. Get `Mulu-<version>-macos-arm64.zip` from [Releases](https://github.com/TerryG907/mulu/releases) and unzip it; you get `Mulu.app`.
+1. Get `Mulu-<version>-macos-arm64.zip` from [Releases](https://github.com/TerryG907/mulu/releases/latest) and unzip it; you get `Mulu.app`.
 2. macOS blocks the first launch, because the app is only ad-hoc signed (no Developer ID, not notarized):
    - macOS 14: in Finder, right-click the app ▸ Open ▸ then click Open.
    - macOS 15 and later: double-click it once (it is blocked), then go to System Settings ▸ Privacy & Security and click Open Anyway.
@@ -316,7 +315,6 @@ Notes:
 - The zip under Releases is built by GitHub Actions from the tagged source ([.github/workflows/release.yml](.github/workflows/release.yml)). Check the download with the `.sha256` file next to it: `shasum -a 256 -c Mulu-<version>-macos-arm64.zip.sha256`.
 - We have not tested the blocked-download path ourselves, only locally built copies. Development and testing happened on macOS 26.6.2 only; the app has not been run on macOS 14 or 15.
 - The zip contains only the app. The `mulu` command line has to be [built from source](#build-en).
-- If the Releases page has no files yet, package the app yourself as described under [Mac app](#gui-en).
 
 <a id="why-en"></a>
 
