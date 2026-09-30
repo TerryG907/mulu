@@ -1,0 +1,383 @@
+[
+  {
+    "identifier": "analyticalgeometry00bake",
+    "file": "analyticalgeometry00bake.pdf",
+    "size": 11199046,
+    "md5": "0011f64eaea2be8fb6ea030dbee94b28",
+    "sha1": "f625e27702a3684b3311ba2d2f712512c1790e52",
+    "title": "Analytical geometry for beginners",
+    "date": "1905",
+    "year": "1905",
+    "language": "eng",
+    "contributor": "The University of Western Ontario, Western Archives",
+    "scanningcenter": "uoft",
+    "url": "https://archive.org/details/analyticalgeometry00bake",
+    "pages": 234,
+    "producer": "Internet Archive PDF 1.4.22; including mupdf and pymupdf/skimage",
+    "image_filters": {
+      "JPXDecode": 468
+    },
+    "text_layer": true,
+    "toc_pages": null,
+    "public_domain_basis": "published 1905, US public domain (1928 or earlier)"
+  },
+  {
+    "identifier": "historyofsteamna00kennuoft",
+    "file": "historyofsteamna00kennuoft.pdf",
+    "size": 29933680,
+    "md5": "9d2aae8b16efc42f51de0037b486436c",
+    "sha1": "ef79dd9eeab94eba35d958d45a89f914c626787a",
+    "title": "The history of steam navigation",
+    "date": "1903",
+    "year": "1903",
+    "language": "eng",
+    "contributor": "Robarts - University of Toronto",
+    "scanningcenter": "uoft",
+    "url": "https://archive.org/details/historyofsteamna00kennuoft",
+    "pages": 376,
+    "producer": "Internet Archive PDF 1.4.22; including mupdf and pymupdf/skimage",
+    "image_filters": {
+      "JPXDecode": 752
+    },
+    "text_layer": true,
+    "toc_pages": null,
+    "public_domain_basis": "published 1903, US public domain (1928 or earlier)"
+  },
+  {
+    "identifier": "thirdreader0000unse",
+    "file": "thirdreader0000unse.pdf",
+    "size": 12754234,
+    "md5": "3817c9d1f655e434b14808f26223119a",
+    "sha1": "e1875a4a580032711d85a2dfb1e487f6ddc6d6a6",
+    "title": "British Columbia readers : a third reader",
+    "date": "1916-01-01T00:00:00Z",
+    "year": "1916",
+    "language": "eng",
+    "contributor": "University of Victoria Libraries",
+    "scanningcenter": "tt_victoria",
+    "url": "https://archive.org/details/thirdreader0000unse",
+    "pages": 278,
+    "producer": "Internet Archive PDF 1.4.22; including mupdf and pymupdf/skimage",
+    "image_filters": {
+      "JPXDecode": 556
+    },
+    "text_layer": true,
+    "toc_pages": null,
+    "public_domain_basis": "published 1916, US public domain (1928 or earlier)"
+  },
+  {
+    "identifier": "elementaryenglis0000unse_k0j8",
+    "file": "elementaryenglis0000unse_k0j8.pdf",
+    "size": 9812719,
+    "md5": "38f431b5339f80f95465bfbf1eefb924",
+    "sha1": "4728e21c7a220b21d36ecc6ab53cec2d536104e7",
+    "title": "Elementary English composition",
+    "date": "1902-01-01T00:00:00Z",
+    "year": "1902",
+    "language": "eng",
+    "contributor": "University of Victoria Libraries",
+    "scanningcenter": "tt_victoria",
+    "url": "https://archive.org/details/elementaryenglis0000unse_k0j8",
+    "pages": 254,
+    "producer": "Internet Archive PDF 1.4.18; including mupdf and pymupdf/skimage",
+    "image_filters": {
+      "JPXDecode": 508
+    },
+    "text_layer": true,
+    "toc_pages": null,
+    "public_domain_basis": "published 1902, US public domain (1928 or earlier)"
+  },
+  {
+    "identifier": "practicalmathema00castrich",
+    "file": "practicalmathema00castrich.pdf",
+    "size": 19360813,
+    "md5": "6e41ac68359337735b293bb07908fe4e",
+    "sha1": "75c8a520ef176eadf0a5dd84a3b3ce505079bc92",
+    "title": "Practical mathematics for beginners",
+    "date": "1905",
+    "year": "1905",
+    "language": "eng",
+    "contributor": "University of California Libraries",
+    "scanningcenter": "rich",
+    "url": "https://archive.org/details/practicalmathema00castrich",
+    "pages": 366,
+    "producer": "Recoded by LuraDocument PDF v2.53",
+    "image_filters": {
+      "JPXDecode": 732
+    },
+    "text_layer": true,
+    "toc_pages": null,
+    "public_domain_basis": "published 1905, US public domain (1928 or earlier)"
+  },
+  {
+    "identifier": "spacetimegravita00eddirich",
+    "file": "spacetimegravita00eddirich.pdf",
+    "size": 15275150,
+    "md5": "fe7041504f88e6722da748bbe3ce9170",
+    "sha1": "a75a40c313eb242dd9f330e33895509266bcc790",
+    "title": "Space, time and gravitation : an outline of the general relativity theory",
+    "date": "1920",
+    "year": "1920",
+    "language": "eng",
+    "contributor": "University of California Libraries",
+    "scanningcenter": "rich",
+    "url": "https://archive.org/details/spacetimegravita00eddirich",
+    "pages": 240,
+    "producer": "Recoded by LuraDocument PDF v2.28",
+    "image_filters": {
+      "JPXDecode": 480
+    },
+    "text_layer": true,
+    "toc_pages": null,
+    "public_domain_basis": "published 1920, US public domain (1928 or earlier)"
+  },
+  {
+    "identifier": "mathematicsofacc00walt",
+    "file": "mathematicsofacc00walt.pdf",
+    "size": 13078017,
+    "md5": "d73ce6d16662a9f09ba24c02813cdc4d",
+    "sha1": "8f23b1a0c4ad861bb605e2e9410d376fa6de7d2a",
+    "title": "Mathematics of accounting and finance",
+    "date": "1921",
+    "year": "1921",
+    "language": "eng",
+    "contributor": "University of California Libraries",
+    "scanningcenter": "la",
+    "url": "https://archive.org/details/mathematicsofacc00walt",
+    "pages": 296,
+    "producer": "Recoded by LuraDocument PDF v2.28",
+    "image_filters": {
+      "JPXDecode": 589
+    },
+    "text_layer": true,
+    "toc_pages": null,
+    "public_domain_basis": "published 1921, US public domain (1928 or earlier)"
+  },
+  {
+    "identifier": "manualofenglishg00nesf",
+    "file": "manualofenglishg00nesf.pdf",
+    "size": 28122682,
+    "md5": "44eaa77f2df1bc10cbd6bfd60a73eaec",
+    "sha1": "6de08f1360a5fc6be1db1de4d6724a42d50c6aaa",
+    "title": "Manual of English grammar and composition",
+    "date": "1908",
+    "year": "1908",
+    "language": "eng",
+    "contributor": "Boston Public Library",
+    "scanningcenter": "boston",
+    "url": "https://archive.org/details/manualofenglishg00nesf",
+    "pages": 440,
+    "producer": "Recoded by LuraDocument PDF v2.28",
+    "image_filters": {
+      "JPXDecode": 880
+    },
+    "text_layer": true,
+    "toc_pages": null,
+    "public_domain_basis": "published 1908, US public domain (1928 or earlier)"
+  },
+  {
+    "identifier": "firstvoyageround00piga",
+    "file": "firstvoyageround00piga.pdf",
+    "size": 19494501,
+    "md5": "d955f7db67d2277eca80b32c3486719e",
+    "sha1": "43b80e69788b4d67063dfec5c5151ec288a30ed0",
+    "title": "The First voyage round the world, by Magellan",
+    "date": "1874",
+    "year": "1874",
+    "language": "eng",
+    "contributor": "Boston Public Library",
+    "scanningcenter": "boston",
+    "url": "https://archive.org/details/firstvoyageround00piga",
+    "pages": 366,
+    "producer": "Recoded by LuraDocument PDF v2.28",
+    "image_filters": {
+      "JPXDecode": 732
+    },
+    "text_layer": true,
+    "toc_pages": null,
+    "public_domain_basis": "published 1874, US public domain (1928 or earlier)"
+  },
+  {
+    "identifier": "historyoflehighc00hause",
+    "file": "historyoflehighc00hause.pdf",
+    "size": 7078371,
+    "md5": "1ba67e5ef612cc84545f429a5e56fd9c",
+    "sha1": "9a34d78b87d1771eb384414c10acb90cbeddca69",
+    "title": "A history of Lehigh County, Pennsylvania, from the earliest settlements to the present time, including much valuable information for the use of schools, families, libraries",
+    "date": "1902",
+    "year": "1902",
+    "language": "eng",
+    "contributor": "The Library of Congress",
+    "scanningcenter": "capitolhill",
+    "url": "https://archive.org/details/historyoflehighc00hause",
+    "pages": 132,
+    "producer": "Recoded by LuraDocument PDF v2.28",
+    "image_filters": {
+      "JPXDecode": 264
+    },
+    "text_layer": true,
+    "toc_pages": null,
+    "public_domain_basis": "published 1902, US public domain (1928 or earlier)"
+  },
+  {
+    "identifier": "theorysound06raylgoog",
+    "file": "theorysound06raylgoog_text.pdf",
+    "size": 19958523,
+    "md5": "83f890f315884bd400ae0b4200daab32",
+    "sha1": "88bd5b1044b9962c58c52f7090db06f79147a2c8",
+    "title": "The theory of sound",
+    "date": "1877",
+    "year": "1877",
+    "language": "eng",
+    "contributor": "University of Michigan",
+    "scanningcenter": null,
+    "url": "https://archive.org/details/theorysound06raylgoog",
+    "pages": 370,
+    "producer": "Internet Archive PDF 1.4.25; including mupdf and pymupdf/skimage",
+    "image_filters": {
+      "JBIG2Decode": 365,
+      "JPXDecode": 10
+    },
+    "text_layer": true,
+    "toc_pages": null,
+    "public_domain_basis": "published 1877, US public domain (1928 or earlier)"
+  },
+  {
+    "identifier": "upfromslaveryan08washgoog",
+    "file": "upfromslaveryan08washgoog_text.pdf",
+    "size": 16232589,
+    "md5": "fccdacfd2e724b4f8a839a796c1b91d5",
+    "sha1": "50f83a9a82248ff074ade2c403c204aba211fded",
+    "title": "Up from Slavery: An Autobiography",
+    "date": "1906",
+    "year": "1906",
+    "language": "English",
+    "contributor": "Harvard University",
+    "scanningcenter": null,
+    "url": "https://archive.org/details/upfromslaveryan08washgoog",
+    "pages": 387,
+    "producer": "Internet Archive PDF 1.4.25; including mupdf and pymupdf/skimage",
+    "image_filters": {
+      "JPXDecode": 774
+    },
+    "text_layer": true,
+    "toc_pages": null,
+    "public_domain_basis": "published 1906, US public domain (1928 or earlier)"
+  },
+  {
+    "identifier": "cu31924002967382",
+    "file": "cu31924002967382.pdf",
+    "size": 5805082,
+    "md5": "78301d6bba0bf995b64eaaee6783d341",
+    "sha1": "b66d2bedbb664e5fe90406b9a716c7ecda3bb625",
+    "title": "Chemical calculations",
+    "date": "1915",
+    "year": "1915",
+    "language": "eng",
+    "contributor": "Cornell University Library",
+    "scanningcenter": null,
+    "url": "https://archive.org/details/cu31924002967382",
+    "pages": 312,
+    "producer": "Recoded by LuraDocument PDF v2.28",
+    "image_filters": {
+      "JPXDecode": 618
+    },
+    "text_layer": true,
+    "toc_pages": null,
+    "public_domain_basis": "published 1915, US public domain (1928 or earlier)"
+  },
+  {
+    "identifier": "newmcguffeythird00mcgu",
+    "file": "newmcguffeythird00mcgu.pdf",
+    "size": 17602574,
+    "md5": "f2a30a3f0cc2bd851612412ed486b01d",
+    "sha1": "8af6956b05dd12164f1fd91646eccfcfd95263a6",
+    "title": "The New McGuffey third reader",
+    "date": "1901",
+    "year": "1901",
+    "language": "eng",
+    "contributor": "Allen County Public Library Genealogy Center",
+    "scanningcenter": "indiana",
+    "url": "https://archive.org/details/newmcguffeythird00mcgu",
+    "pages": 234,
+    "producer": "Recoded by LuraDocument PDF v2.65",
+    "image_filters": {
+      "JPXDecode": 468
+    },
+    "text_layer": true,
+    "toc_pages": null,
+    "public_domain_basis": "published 1901, US public domain (1928 or earlier)"
+  },
+  {
+    "identifier": "zhiwudefenbu00wuku",
+    "file": "zhiwudefenbu00wuku.pdf",
+    "size": 9964262,
+    "md5": "5e25da300054cb39a7ce992a805e743b",
+    "sha1": "e41711b4ab07a90ab3c671e94ceef9329a3265b8",
+    "title": "zhi wu de fen bu",
+    "date": "1926.3",
+    "year": "1926",
+    "language": "chi",
+    "contributor": "Institute of Botany, CAS",
+    "scanningcenter": "beijing",
+    "url": "https://archive.org/details/zhiwudefenbu00wuku",
+    "pages": 149,
+    "producer": "Internet Archive PDF 1.4.24; including mupdf and pymupdf/skimage",
+    "image_filters": {
+      "JPXDecode": 298
+    },
+    "text_layer": true,
+    "toc_pages": null,
+    "public_domain_basis": "published 1926, US public domain (1928 or earlier)"
+  },
+  {
+    "identifier": "nanyangzhiwuzhi00wuyux",
+    "file": "nanyangzhiwuzhi00wuyux.pdf",
+    "size": 7472058,
+    "md5": "616734c93b24012dca78afac537d9c38",
+    "sha1": "78a9b79b975d772f172fa78324fb368999581ec4",
+    "title": "nan yang zhi wu zhi 南洋植物志",
+    "date": "1919.12",
+    "year": "1919",
+    "language": [
+      "chi",
+      "eng"
+    ],
+    "contributor": "Library of IBCAS",
+    "scanningcenter": "beijing",
+    "url": "https://archive.org/details/nanyangzhiwuzhi00wuyux",
+    "pages": 144,
+    "producer": "Internet Archive PDF 1.4.24; including mupdf and pymupdf/skimage",
+    "image_filters": {
+      "JPXDecode": 288
+    },
+    "text_layer": true,
+    "toc_pages": null,
+    "public_domain_basis": "published 1919, US public domain (1928 or earlier)"
+  },
+  {
+    "identifier": "emeiyouji00zhan",
+    "file": "emeiyouji00zhan.pdf",
+    "size": 6993704,
+    "md5": "153c395becd7313213ac3c770d65c982",
+    "sha1": "ef1202d6b7e9cbb4d3499f414218c9c9016eb609",
+    "title": "e mei you ji",
+    "date": "1923.6",
+    "year": "1923",
+    "language": [
+      "chi",
+      "eng"
+    ],
+    "contributor": "Library of IBCAS",
+    "scanningcenter": "beijing",
+    "url": "https://archive.org/details/emeiyouji00zhan",
+    "pages": 188,
+    "producer": "Internet Archive PDF 1.4.22; including mupdf and pymupdf/skimage",
+    "image_filters": {
+      "JPXDecode": 376
+    },
+    "text_layer": true,
+    "toc_pages": null,
+    "public_domain_basis": "published 1923, US public domain (1928 or earlier)"
+  }
+]

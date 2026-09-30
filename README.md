@@ -6,7 +6,7 @@ Mulu 是一个免费、开源（MIT）的 macOS 命令行工具。它还能识�
 
 [English below](#english)
 
-> **当前状态：预发布。** 只有命令行，还没有图形界面。所有测试都是在程序生成的「合成」PDF 和扫描书上做的，**还没有在真实扫描书上验证过**。预计真书上的效果会比下面的数字差。
+> **当前状态：预发布。** 只有命令行，还没有图形界面。下面的准确率数字来自程序生成的「合成」PDF 和扫描书。**在 17 本真实公版扫描书上**：写入安全 17/17 通过；`mulu auto` 只在 1 本上自动写出了目录（页码全对），其余 16 本都拒绝了，没有写错一本。老式英文目录、页码偏移在书中间改变、竖排中文目录目前都做不了。详见 [docs/REALSCAN.md](docs/REALSCAN.md)。
 
 ## 为什么做 Mulu
 
@@ -130,7 +130,7 @@ mulu dump-outline 书.pdf
 
 ## 实测结果（全部是合成样例）
 
-> 下面的数字全部来自程序生成的 PDF 和合成扫描书：印刷整齐，没有真实纸张的阴影、弯曲和污渍。它们只说明「最好的情况下能做到什么」。真实扫描书还没测过。
+> 下面的数字全部来自程序生成的 PDF 和合成扫描书：印刷整齐，没有真实纸张的阴影、弯曲和污渍。它们只说明「最好的情况下能做到什么」。真实扫描书的结果见 [docs/REALSCAN.md](docs/REALSCAN.md)。
 
 **写入器**（`tools/run_all.sh`）
 
@@ -167,7 +167,7 @@ mulu dump-outline 书.pdf
 
 ## 已知限制
 
-- 没有在真实扫描书上测过。
+- 真实扫描书上，自动目录只在 1/17 本上成功（其余拒绝，未写错），详见 [docs/REALSCAN.md](docs/REALSCAN.md)。现代横排简体中文教材还没在真书上测过。
 - 下面几种目录目前会被拒绝（安全，但得不到目录）：页码印在标题左边；每个中文条目后面跟一行英文的双语目录；标题下面还有作者行（会议论文集）；页码紧贴在以数字结尾的标题后面（例如「iPhone 1512」）；英文标题里含罗马数字，又碰上识别不清（例如「Henry VIII」）；前言单独从 1 开始编页码。
 - 书中间夹了没有页码的插页时只会拒绝，还不支持分段偏移。这种书只能先手工加 `--offset`，再改草稿。
 - 标题偶尔会有错字（492 个书签里有 3 个），页码和层级不受影响。用之前最好扫一眼。
@@ -204,7 +204,7 @@ tools/gate/run_gate.sh ~/你的书文件夹
 
 ## 路线图
 
-- 现在：用真实扫描书跑闸门。
+- 现在：已在 17 本公版扫描书上测过，下一步是支持老式英文目录（内容提要、课次范围）和分段页码偏移，并用现代中文教材验证。
 - 下一步：Mac 图形界面（GUI）。
 
 ## 许可证
@@ -223,7 +223,7 @@ Mulu adds a clickable, multi-level outline (bookmarks) to a PDF **without changi
 
 It is a free, open-source (MIT) command-line tool for macOS. It can also read the printed table of contents of a scanned book, work out the page offset, and write the outline in one command.
 
-> **Status: pre-release.** Command line only; there is no GUI yet. Every test so far uses synthetic PDFs and synthetic scanned books. **It has not been validated on real scans.** Expect real books to do worse than the numbers below, not better.
+> **Status: pre-release.** Command line only; there is no GUI yet. The accuracy numbers below come from synthetic PDFs and synthetic scanned books. **On 17 real public-domain scans**, the writer passed 17/17; `mulu auto` wrote an outline for only 1 book (every page correct) and refused the other 16, writing no wrong outline. Old-style English TOCs, page offsets that change mid-book and vertical Chinese TOCs are not handled yet. See [docs/REALSCAN.md](docs/REALSCAN.md) (in Chinese).
 
 ## Why
 
@@ -347,7 +347,7 @@ Chapter 2 Method 11
 
 ## Measured results (synthetic samples only)
 
-> Every number below comes from generated PDFs and synthetic scanned books: clean print, no shadows, curvature or stains from real paper. They show the best case. Real scans have not been tested.
+> Every number below comes from generated PDFs and synthetic scanned books: clean print, no shadows, curvature or stains from real paper. They show the best case. Real-scan results: [docs/REALSCAN.md](docs/REALSCAN.md).
 
 **Writer** (`tools/run_all.sh`)
 
@@ -384,7 +384,7 @@ Full records (in Chinese): [docs/RESULTS.md](docs/RESULTS.md) (writer) and [docs
 
 ## Known limitations
 
-- Not tested on real scans.
+- On real scans, `mulu auto` succeeded on 1 of 17 books (the rest were refused, none written wrong); see [docs/REALSCAN.md](docs/REALSCAN.md). Modern horizontal simplified-Chinese textbooks are still untested on real scans.
 - These TOC layouts are currently refused (safe, but no outline): page numbers printed to the left of titles; bilingual TOCs with an English line under each Chinese entry; author lines under titles (conference proceedings); page numbers glued to a title that ends in digits (such as "iPhone 1512"); English titles with roman numerals that OCR misreads (such as "Henry VIII"); front matter numbered separately from 1.
 - A book with unnumbered plates in the middle is refused; per-section offsets are not supported yet. For such a book, pass `--offset` by hand and edit the draft.
 - Titles occasionally have a wrong character (3 of 492 bookmarks); pages and levels are unaffected. Skim the result before relying on it.
@@ -421,7 +421,7 @@ Details (in Chinese): [tools/gate/README.md](tools/gate/README.md).
 
 ## Roadmap
 
-- Now: run the real-scan gate on real books.
+- Now: tested on 17 public-domain scans; next is support for old-style English TOCs (run-in synopses, lesson ranges), per-section page offsets, and validation on modern Chinese textbooks.
 - Next: a Mac GUI.
 
 ## License
