@@ -1035,7 +1035,7 @@ Index 401
 	复习参考题1 32
 第二章 一元二次函数、方程和不等式 35
 """#, lowConfidenceLines: []),
-        GoldenCase("cn_ocr_agent_format", input: #"""
+        GoldenCase("cn_ocr_stage_format", input: #"""
 前言	iii
 第一章 数据结构绪论	1
   1.1 开场白	2

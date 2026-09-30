@@ -291,7 +291,9 @@ public final class OffsetDetector {
                             seconds: Double(d.components.seconds) + Double(d.components.attoseconds) / 1e18)
     }
 
-    public func detect(options: Options = Options(), progress: ((OffsetSample) -> Void)? = nil) throws -> OffsetReport {
+    /// `progress` is called after each sampled page (and after a thickened re-reading that changed
+    /// one); an error it throws (e.g. CancellationError) ends the detection and is rethrown.
+    public func detect(options: Options = Options(), progress: ((OffsetSample) throws -> Void)? = nil) throws -> OffsetReport {
         let clock = ContinuousClock()
         let t0 = clock.now
         var samples: [OffsetSample] = []
@@ -306,7 +308,7 @@ public final class OffsetDetector {
                 firstError = firstError ?? error
                 s = OffsetSample(page: p, printed: [], texts: ["(could not render: \(error))"])
             }
-            progress?(s)
+            try progress?(s)
             samples.append(s)
         }
         if !samples.isEmpty && unrenderable.count == samples.count, let firstError { throw firstError }
@@ -321,7 +323,7 @@ public final class OffsetDetector {
                 samples[k] = thick
                 if samples[k].standalone != before {
                     changed = true
-                    progress?(samples[k])
+                    try progress?(samples[k])
                 }
             }
             if changed { r = OffsetVoter.vote(samples, minAgreeing: options.minAgreeing, minConfidence: options.minConfidence) }

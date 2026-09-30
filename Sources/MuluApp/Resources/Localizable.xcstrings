@@ -1,0 +1,3626 @@
+{
+  "sourceLanguage" : "zh-Hans",
+  "strings" : {
+    "%@：%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@: %@"
+          }
+        }
+      }
+    },
+    "%lld 条" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld entries"
+          }
+        }
+      }
+    },
+    "%lld 条可疑" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld to check"
+          }
+        }
+      }
+    },
+    "%lld 条有错" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld errors"
+          }
+        }
+      }
+    },
+    "%lld 条没有页码" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld entries have no page"
+          }
+        }
+      }
+    },
+    "%lld 条页码比上一条小。仍然写入？" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld entries have a lower page than the previous one. Write anyway?"
+          }
+        }
+      }
+    },
+    "-目录" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-outline"
+          }
+        }
+      }
+    },
+    "Mulu v0.1 还不能给加密的 PDF 写目录。如果你知道密码，可以在「预览」里打开它，用「文件 ▸ 导出为 PDF…」存一份不加密的副本，再用 Mulu 打开那份副本。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mulu 0.1 cannot add an outline to encrypted PDFs yet. If you know the password, open it in Preview, save an unencrypted copy with File ▸ Export as PDF…, and open that copy in Mulu."
+          }
+        }
+      }
+    },
+    "Mulu 只把目录写进新的 PDF；没有写入的修改会丢失。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mulu writes outlines only into new PDFs; unwritten changes will be lost."
+          }
+        }
+      }
+    },
+    "Mulu 只能打开 PDF 文件。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mulu can only open PDF files."
+          }
+        }
+      }
+    },
+    "Mulu 只能打开 PDF。“%@”不是 PDF。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mulu opens PDFs only. “%@” is not a PDF."
+          }
+        }
+      }
+    },
+    "Mulu 文本" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mulu Text"
+          }
+        }
+      }
+    },
+    "Mulu 无法处理这个 PDF" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mulu cannot process this PDF"
+          }
+        }
+      }
+    },
+    "PDF 原有目录的页码是固定页，不随偏移变" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pages from the PDF's existing outline are pinned and do not follow the offset"
+          }
+        }
+      }
+    },
+    "PDF 的物理页，也就是缩略图下面的数字。最多 %lld 页。中文标点（，、～ 至）也可以。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Physical PDF pages, the numbers under the thumbnails. At most %lld pages. Chinese punctuation (，、～ 至) works too."
+          }
+        }
+      }
+    },
+    "PDF 第 %lld 页 / 共 %lld 页" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF page %lld of %lld"
+          }
+        }
+      }
+    },
+    "PDF 页 = 印刷页 + 偏移" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF page = printed page + offset"
+          }
+        }
+      }
+    },
+    "PDF 预览" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF preview"
+          }
+        }
+      }
+    },
+    "PDF补丁丁 XML" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDFPatcher XML"
+          }
+        }
+      }
+    },
+    "macOS 无法显示这个 PDF（可能已损坏）。仍然可以粘贴或导入目录，然后写入。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS cannot display this PDF (it may be damaged). You can still paste or import an outline and write it."
+          }
+        }
+      }
+    },
+    "macOS 无法读取这个 PDF 的页面，不能识别目录页；可以粘贴或导入目录再写入" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS cannot read this PDF’s pages, so TOC pages cannot be recognized; paste or import an outline, then write it"
+          }
+        }
+      }
+    },
+    "pdfdir 文本" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "pdfdir Text"
+          }
+        }
+      }
+    },
+    "“%@”有 %@，不像目录文件（目录文件最多 %@）。当前目录没有改动。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“%@” is %@, too large for an outline file (at most %@). The current outline was not changed."
+          }
+        }
+      }
+    },
+    "“%@”没有被导入，当前目录没有改动。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“%@” was not imported; the current outline is unchanged."
+          }
+        }
+      }
+    },
+    "“%@”的目录修改还没有写入 PDF。仍然关闭？" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The outline changes to “%@” are not written to a PDF. Close anyway?"
+          }
+        }
+      }
+    },
+    "…还有 %lld 处" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "…and %lld more"
+          }
+        }
+      }
+    },
+    "⌃Tab / ⌃⇧Tab 把焦点移出表格。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "⌃Tab / ⌃⇧Tab move the focus out of the table."
+          }
+        }
+      }
+    },
+    "① 在预览里翻到印着目录的那几页，逐页勾选上方的「这是目录页」（或按住 ⌘ 点左边的缩略图）。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. In the preview, go to the pages with the printed table of contents and tick “This is a TOC page” above it on each one (or ⌘-click the thumbnails on the left)."
+          }
+        }
+      }
+    },
+    "② 点「识别目录页…」，把目录读成可以修改的草稿。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. Click “Recognize TOC Pages…” to turn them into a draft you can correct."
+          }
+        }
+      }
+    },
+    "「%@」→ 没有页码" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“%@” → no page"
+          }
+        }
+      }
+    },
+    "「%@」→ 第 %lld 页" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“%@” → page %lld"
+          }
+        }
+      }
+    },
+    "「%@」→ 第 %lld 页（印刷页 %@ + 偏移 %@）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“%@” → page %lld (printed page %@, offset %@)"
+          }
+        }
+      }
+    },
+    "「%@」→ 第 %lld 页（手动固定）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“%@” → page %lld (pinned)"
+          }
+        }
+      }
+    },
+    "一行里有两栏，已拆开" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "a line with two columns was split"
+          }
+        }
+      }
+    },
+    "上一条" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Previous"
+          }
+        }
+      }
+    },
+    "上一条（↑）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Previous (↑)"
+          }
+        }
+      }
+    },
+    "上移" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Move Up"
+          }
+        }
+      }
+    },
+    "上移 / 下移" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Move Up / Move Down"
+          }
+        }
+      }
+    },
+    "上移（⌥⌘↑）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Move Up (⌥⌘↑)"
+          }
+        }
+      }
+    },
+    "下一条" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        }
+      }
+    },
+    "下一条 / 上一条" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next / previous"
+          }
+        }
+      }
+    },
+    "下一条可疑" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next Entry to Check"
+          }
+        }
+      }
+    },
+    "下一条（↓）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next (↓)"
+          }
+        }
+      }
+    },
+    "下移" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Move Down"
+          }
+        }
+      }
+    },
+    "下移（⌥⌘↓）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Move Down (⌥⌘↓)"
+          }
+        }
+      }
+    },
+    "不能写到这个位置。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cannot write to this location."
+          }
+        }
+      }
+    },
+    "不能覆盖原文件。Mulu 只写新文件。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mulu never overwrites the original. Choose a new name."
+          }
+        }
+      }
+    },
+    "也不能识别目录页：识别要靠 macOS 读出页面图像。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TOC pages cannot be recognized either: recognition needs macOS to render the pages."
+          }
+        }
+      }
+    },
+    "书上印着「1」的那一页，是 PDF 的第几页？不知道就留空。PDF 页 = 印刷页 + 偏移。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Which PDF page is the page printed “1”? Leave it empty if you do not know. PDF page = printed page + offset."
+          }
+        }
+      }
+    },
+    "仍然关闭" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close Anyway"
+          }
+        }
+      }
+    },
+    "仍然写入" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Write Anyway"
+          }
+        }
+      }
+    },
+    "仍然退出" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quit Anyway"
+          }
+        }
+      }
+    },
+    "从标题末尾去掉了「%@」（误读的页码）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "removed “%@” (a misread page number) from the end of the title"
+          }
+        }
+      }
+    },
+    "从这一行起按当前预览页校准" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calibrate from This Entry On Using the Preview Page"
+          }
+        }
+      }
+    },
+    "从这一行起按这一页校准" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calibrate from This Entry On"
+          }
+        }
+      }
+    },
+    "从这一行起校准" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calibrate from Entry On"
+          }
+        }
+      }
+    },
+    "使用结果" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use Result"
+          }
+        }
+      }
+    },
+    "使用识别结果" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use Recognition Result"
+          }
+        }
+      }
+    },
+    "例如 5-7 或 3,5,8-9" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "e.g. 5-7 or 3,5,8-9"
+          }
+        }
+      }
+    },
+    "修改标题" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit Title"
+          }
+        }
+      }
+    },
+    "修改页码" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit Page"
+          }
+        }
+      }
+    },
+    "偏移 %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offset %@"
+          }
+        }
+      }
+    },
+    "偏移 %@（你给定的）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offset %@ (given by you)"
+          }
+        }
+      }
+    },
+    "偏移 %@：%lld 个抽样页中 %lld 页一致" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offset %1$@: %3$lld of %2$lld sampled pages agree"
+          }
+        }
+      }
+    },
+    "偏移 %@：页码和 %lld 个章标题共同确认" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offset %@: confirmed by page numbers and %lld chapter headings"
+          }
+        }
+      }
+    },
+    "偏移可能在书中间改变" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The offset may change partway through the book"
+          }
+        }
+      }
+    },
+    "偏移多半不对：点第一章，把预览翻到它真正的第一页，按 ⌘⇧L。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The offset is probably wrong: click the first chapter, show its real first page in the preview, press ⌘⇧L."
+          }
+        }
+      }
+    },
+    "偏移没能确定" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offset not determined"
+          }
+        }
+      }
+    },
+    "偏移没能确定，先按 %@ 放置" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offset not determined; placed at %@ for now"
+          }
+        }
+      }
+    },
+    "偏移让第一章落在目录页之前" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The offset puts the first chapter before the TOC pages"
+          }
+        }
+      }
+    },
+    "偏移还没设：点一行，把预览翻到这一章真正的第一页，按 ⌘⇧L" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offset not set yet: click an entry, show the chapter’s real first page in the preview, press ⌘⇧L"
+          }
+        }
+      }
+    },
+    "先审阅" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Review First"
+          }
+        }
+      }
+    },
+    "全部展开" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Expand All"
+          }
+        }
+      }
+    },
+    "全部折叠" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collapse All"
+          }
+        }
+      }
+    },
+    "全部看完了：已核对 %lld 条" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All done: %lld entries checked"
+          }
+        }
+      }
+    },
+    "共 %lld 页" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld pages"
+          }
+        }
+      }
+    },
+    "关闭提示" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dismiss"
+          }
+        }
+      }
+    },
+    "关闭横幅" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dismiss"
+          }
+        }
+      }
+    },
+    "关闭窗口" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close Window"
+          }
+        }
+      }
+    },
+    "写入" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Write"
+          }
+        }
+      }
+    },
+    "写入器拒绝了这份目录。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The writer refused this outline."
+          }
+        }
+      }
+    },
+    "写入失败，没有生成文件" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Writing failed; no file was created"
+          }
+        }
+      }
+    },
+    "写入带目录的新 PDF" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Write a New PDF with the Outline"
+          }
+        }
+      }
+    },
+    "写入目录…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Write Outline…"
+          }
+        }
+      }
+    },
+    "写入目录…（⌘S）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Write Outline… (⌘S)"
+          }
+        }
+      }
+    },
+    "写入通常只要几秒钟。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Writing usually takes a few seconds."
+          }
+        }
+      }
+    },
+    "写出的文件没有通过复核，已经删除。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The written file failed verification and was deleted."
+          }
+        }
+      }
+    },
+    "写文件时出错。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An error occurred while writing the file."
+          }
+        }
+      }
+    },
+    "减少缩进" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Outdent"
+          }
+        }
+      }
+    },
+    "减少缩进（⇧Tab）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Outdent (⇧Tab)"
+          }
+        }
+      }
+    },
+    "分段偏移" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Section Offset"
+          }
+        }
+      }
+    },
+    "删除" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        }
+      }
+    },
+    "删除但保留子项" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete, Keep Children"
+          }
+        }
+      }
+    },
+    "删除这些行（保留子项）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete These Entries (Keep Children)"
+          }
+        }
+      }
+    },
+    "删除（⌫）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete (⌫)"
+          }
+        }
+      }
+    },
+    "删除（连同子项）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete (with children)"
+          }
+        }
+      }
+    },
+    "前言偏移" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Front-Matter Offset"
+          }
+        }
+      }
+    },
+    "前言（罗马数字）页码没能对上" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Front-matter (roman numeral) pages could not be matched"
+          }
+        }
+      }
+    },
+    "印 %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "p. %@"
+          }
+        }
+      }
+    },
+    "印 %@ ·%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "p. %@ ·%@"
+          }
+        }
+      }
+    },
+    "印刷第 1 页在 PDF 第几页" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF page of printed page 1"
+          }
+        }
+      }
+    },
+    "印刷第 1 页所在的 PDF 页至少是 1。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The PDF page of printed page 1 must be at least 1."
+          }
+        }
+      }
+    },
+    "印刷页 %@ + 偏移 %@ + 本段 %@ → PDF 第 %lld 页" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Printed page %@ + offset %@ + section %@ → PDF page %lld"
+          }
+        }
+      }
+    },
+    "印刷页 %@ + 偏移 %@ → PDF 第 %lld 页" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Printed page %@ + offset %@ → PDF page %lld"
+          }
+        }
+      }
+    },
+    "印刷页 %@ 还没有对应的 PDF 页：请设置前言偏移" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Printed page %@ has no PDF page yet: set the front-matter offset"
+          }
+        }
+      }
+    },
+    "印刷页码比上一条小" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Printed page is lower than the previous entry's"
+          }
+        }
+      }
+    },
+    "原文件不会被改动：新文件 = 原文件的全部字节 + 末尾追加的目录。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The original stays untouched: the new file is every original byte plus an outline appended at the end."
+          }
+        }
+      }
+    },
+    "原文件在打开后被改动过，请重新打开再写入。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The original file changed after it was opened. Reopen it, then write again."
+          }
+        }
+      }
+    },
+    "原目录项无法解析到页面，暂用上一条的页" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The original outline item has no resolvable page; using the previous entry's page"
+          }
+        }
+      }
+    },
+    "取消" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
+    },
+    "取消核对" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mark as Unchecked"
+          }
+        }
+      }
+    },
+    "取消目录页" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unmark as TOC Page"
+          }
+        }
+      }
+    },
+    "取消目录页（当前预览页）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unmark as TOC Page (Preview Page)"
+          }
+        }
+      }
+    },
+    "另有 %lld 条页码比上一条小。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Also, %lld entries have a lower page than the previous one."
+          }
+        }
+      }
+    },
+    "只看可疑" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Only Doubtful"
+          }
+        }
+      }
+    },
+    "只移动本行和它后面的条目，前面的不动；适合书中间偏移变了的情况（⌥⌘L）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Move only this entry and the ones after it, the earlier ones stay; for books whose offset changes midway (⌥⌘L)"
+          }
+        }
+      }
+    },
+    "只识别这一页…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recognize Only This Page…"
+          }
+        }
+      }
+    },
+    "可以先用审阅模式逐条看一遍（⌘⇧R）。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can go through them in Review Mode first (⌘⇧R)."
+          }
+        }
+      }
+    },
+    "可疑" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Needs checking"
+          }
+        }
+      }
+    },
+    "可疑条目太多" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Too many entries need checking"
+          }
+        }
+      }
+    },
+    "可疑的 %lld 条都看完了。还有 %lld 条没看过（错字不一定被标成可疑）。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All %lld entries to check are done. %lld entries have not been looked at (OCR typos are not always flagged)."
+          }
+        }
+      }
+    },
+    "可空" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optional"
+          }
+        }
+      }
+    },
+    "可空：自动检测" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optional: detect automatically"
+          }
+        }
+      }
+    },
+    "在 Finder 中显示" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show in Finder"
+          }
+        }
+      }
+    },
+    "在「前言偏移」里填上前言页的偏移，或者给这些行手动设页码（⌘L）。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter the front-matter offset, or set the pages of these entries by hand (⌘L)."
+          }
+        }
+      }
+    },
+    "在预览上方勾选「这是目录页」，或按住 ⌘ 点选缩略图" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tick “This is a TOC page” above the preview, or ⌘-click thumbnails"
+          }
+        }
+      }
+    },
+    "增加缩进" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indent"
+          }
+        }
+      }
+    },
+    "增加缩进 / 减少缩进" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indent / Outdent"
+          }
+        }
+      }
+    },
+    "增加缩进（Tab）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indent (Tab)"
+          }
+        }
+      }
+    },
+    "大部分条目超出了最后一页" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Most entries fall after the last page"
+          }
+        }
+      }
+    },
+    "大部分行不像目录" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Most lines do not look like a table of contents"
+          }
+        }
+      }
+    },
+    "好" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
+    },
+    "定位到第一条" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show First Entry"
+          }
+        }
+      }
+    },
+    "审阅" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Review"
+          }
+        }
+      }
+    },
+    "审阅 %lld/%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Review %lld/%lld"
+          }
+        }
+      }
+    },
+    "审阅 %lld/%lld：%@。%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Review %lld/%lld: %@. %@"
+          }
+        }
+      }
+    },
+    "审阅模式" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Review Mode"
+          }
+        }
+      }
+    },
+    "审阅模式 开/关" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Review mode on/off"
+          }
+        }
+      }
+    },
+    "审阅模式（⌘⇧R）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Review Mode (⌘⇧R)"
+          }
+        }
+      }
+    },
+    "导入" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import"
+          }
+        }
+      }
+    },
+    "导入“%@”" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import “%@”"
+          }
+        }
+      }
+    },
+    "导入失败" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import Failed"
+          }
+        }
+      }
+    },
+    "导入时的提示" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import warning"
+          }
+        }
+      }
+    },
+    "导入目录" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import Outline"
+          }
+        }
+      }
+    },
+    "导入目录…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import Outline…"
+          }
+        }
+      }
+    },
+    "导入目录…（⌘⇧I）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import Outline… (⌘⇧I)"
+          }
+        }
+      }
+    },
+    "导入目录文件…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import Outline File…"
+          }
+        }
+      }
+    },
+    "导出" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export"
+          }
+        }
+      }
+    },
+    "导出失败" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export Failed"
+          }
+        }
+      }
+    },
+    "导出目录" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export Outline"
+          }
+        }
+      }
+    },
+    "导出目录（⌘⇧E 用上次的格式）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export Outline (⌘⇧E repeats the last format)"
+          }
+        }
+      }
+    },
+    "导出目录（上次的格式）…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export Outline (Last Format)…"
+          }
+        }
+      }
+    },
+    "层级被调低了（上面没有它的上一级条目）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "level lowered (no parent entry above it)"
+          }
+        }
+      }
+    },
+    "展开 / 折叠" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Expand / Collapse"
+          }
+        }
+      }
+    },
+    "展开「%@」" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Expand “%@”"
+          }
+        }
+      }
+    },
+    "已取消识别，草稿没有改动。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recognition cancelled; the draft is unchanged."
+          }
+        }
+      }
+    },
+    "已导入 %lld 条（来自 %@，%@）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imported %lld entries (from %@, %@)"
+          }
+        }
+      }
+    },
+    "已核对" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Checked"
+          }
+        }
+      }
+    },
+    "已核对 %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld checked"
+          }
+        }
+      }
+    },
+    "已生成「%@」（%lld 条书签）。原 PDF 没有任何改动；新文件保留原文件的全部内容，只在末尾追加了 %@。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Created “%@” (%lld bookmarks). The original PDF is untouched; the new file keeps all of its content and only appends %@ at the end."
+          }
+        }
+      }
+    },
+    "已经在识别了。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recognition is already running."
+          }
+        }
+      }
+    },
+    "已载入 PDF 里原有的目录（%lld 条）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loaded the PDF's existing outline (%lld entries)"
+          }
+        }
+      }
+    },
+    "已选目录页：%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TOC pages chosen: %@"
+          }
+        }
+      }
+    },
+    "已采用识别结果：%lld 条" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recognition result applied: %lld entries"
+          }
+        }
+      }
+    },
+    "带页码的条目太少" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Too few entries with page numbers"
+          }
+        }
+      }
+    },
+    "开头的 # 会写成 ＃（目录文本里行首的 # 表示注释）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "a leading # is written as ＃ (in outline text a # at the start of a line is a comment)"
+          }
+        }
+      }
+    },
+    "开始识别" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recognize"
+          }
+        }
+      }
+    },
+    "当前目录已有 %lld 条。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The current outline already has %lld entries."
+          }
+        }
+      }
+    },
+    "或按 ⌘O 打开。Mulu 只在文件末尾追加目录，原来的字节一个都不改。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Or press ⌘O. Mulu only appends an outline at the end of the file; every original byte stays unchanged."
+          }
+        }
+      }
+    },
+    "手动固定为 PDF 第 %lld 页" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pinned to PDF page %lld"
+          }
+        }
+      }
+    },
+    "手动固定的页码" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pinned page"
+          }
+        }
+      }
+    },
+    "手动添加第一条" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add the First Entry"
+          }
+        }
+      }
+    },
+    "手动设置" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set manually"
+          }
+        }
+      }
+    },
+    "打开" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open"
+          }
+        }
+      }
+    },
+    "打开 PDF" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open PDF"
+          }
+        }
+      }
+    },
+    "打开 PDF…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open PDF…"
+          }
+        }
+      }
+    },
+    "打开其他文件…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Another File…"
+          }
+        }
+      }
+    },
+    "找到页码开始错开的那一章，点它，把预览翻到它真正的第一页，用「从这一行起按这一页校准」（⌥⌘L）。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find the chapter where the pages start to be off, click it, show its real first page in the preview, and use “Calibrate from This Entry On” (⌥⌘L)."
+          }
+        }
+      }
+    },
+    "把 PDF 拖到这里" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drop a PDF Here"
+          }
+        }
+      }
+    },
+    "把握不够：请先核对可疑条目再写入（⌘⇧R 审阅）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not sure enough: check the flagged entries before writing (⌘⇧R Review)"
+          }
+        }
+      }
+    },
+    "把握较高：可以直接写入（仍建议抽查几条）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Likely correct: you can write it now (spot-check a few entries anyway)"
+          }
+        }
+      }
+    },
+    "把本行固定到正在预览的这一页（⌘L）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fix this entry to the page in the preview (⌘L)"
+          }
+        }
+      }
+    },
+    "把正在预览的这一页标为目录页（⌘⇧T）；识别目录页时会读这些页" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mark the page in the preview as a TOC page (⌘⇧T); recognition reads these pages"
+          }
+        }
+      }
+    },
+    "折叠「%@」" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collapse “%@”"
+          }
+        }
+      }
+    },
+    "按 ⌘V 粘贴。每行一条，末尾是印刷页码。缩进和「第X章」这类编号会用来推断层级。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Press ⌘V to paste. One entry per line, ending with its printed page number. Indentation and numbering such as “Chapter X” are used to infer levels."
+          }
+        }
+      }
+    },
+    "按 ⌘⇧R 逐条审阅，改好再写入。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Press ⌘⇧R to review the entries one by one, fix them, then write."
+          }
+        }
+      }
+    },
+    "按当前预览页校准偏移" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calibrate Offset from Preview Page"
+          }
+        }
+      }
+    },
+    "按第 %lld 页校准" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calibrated from page %lld"
+          }
+        }
+      }
+    },
+    "按这一页校准偏移" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calibrate Offset from This Page"
+          }
+        }
+      }
+    },
+    "按预览页校准" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calibrated from the preview page"
+          }
+        }
+      }
+    },
+    "接着看其余 %lld 条" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Review the Other %lld"
+          }
+        }
+      }
+    },
+    "提示" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Note"
+          }
+        }
+      }
+    },
+    "插入到选中行之后" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Insert After Selection"
+          }
+        }
+      }
+    },
+    "撤销 / 重做" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Undo / Redo"
+          }
+        }
+      }
+    },
+    "改全书的页码偏移，让本行落在这一页（⌘⇧L）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Change the offset for the whole book so this entry lands on this page (⌘⇧L)"
+          }
+        }
+      }
+    },
+    "改页码再试" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Change Pages and Retry"
+          }
+        }
+      }
+    },
+    "放弃" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Discard"
+          }
+        }
+      }
+    },
+    "文件" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "File"
+          }
+        }
+      }
+    },
+    "文件可能已损坏。可以试试在「预览」里打开，用「文件 ▸ 导出为 PDF…」另存一份，再用 Mulu 打开。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The file may be damaged. Try opening it in Preview, saving a copy with File ▸ Export as PDF…, and opening that copy in Mulu."
+          }
+        }
+      }
+    },
+    "文档还没准备好。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The document is not ready yet."
+          }
+        }
+      }
+    },
+    "新窗口" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New Window"
+          }
+        }
+      }
+    },
+    "替换当前目录" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replace Current Outline"
+          }
+        }
+      }
+    },
+    "有 %lld 个窗口的目录修改还没有写入 PDF。仍然退出？" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld windows have outline changes that are not written to a PDF. Quit anyway?"
+          }
+        }
+      }
+    },
+    "有 %lld 条可疑，按 ⌘⇧R 逐条核对" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld entries need checking. Press ⌘⇧R to review them one by one"
+          }
+        }
+      }
+    },
+    "有错" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
+          }
+        }
+      }
+    },
+    "未设置" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not set"
+          }
+        }
+      }
+    },
+    "标为已核对" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mark as Checked"
+          }
+        }
+      }
+    },
+    "标为已核对并前往下一条（↩）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mark as checked and go to the next entry (↩)"
+          }
+        }
+      }
+    },
+    "标为已核对（切换）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mark as Checked (toggle)"
+          }
+        }
+      }
+    },
+    "标为目录页" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mark as TOC Page"
+          }
+        }
+      }
+    },
+    "标为目录页（当前预览页）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mark as TOC Page (Preview Page)"
+          }
+        }
+      }
+    },
+    "标题" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Title"
+          }
+        }
+      }
+    },
+    "标题只从放大图里读出" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the title was read only from an enlarged image"
+          }
+        }
+      }
+    },
+    "标题只从放大图里读出，请核对文字" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Title was read only from an enlarged image; check the text"
+          }
+        }
+      }
+    },
+    "标题在不同分辨率下读法不一致" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the title reads differently at different resolutions"
+          }
+        }
+      }
+    },
+    "标题在不同分辨率下读法不一致，请核对文字" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Title reads differently at different resolutions; check the text"
+          }
+        }
+      }
+    },
+    "标题是单独从标题区域读出的" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the title was read from the title region alone"
+          }
+        }
+      }
+    },
+    "标题是空的" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The title is empty"
+          }
+        }
+      }
+    },
+    "标题有改动：「%@」→「%@」" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "title changed: “%@” → “%@”"
+          }
+        }
+      }
+    },
+    "校准偏移" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calibrate Offset"
+          }
+        }
+      }
+    },
+    "核对" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check"
+          }
+        }
+      }
+    },
+    "格式：" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Format:"
+          }
+        }
+      }
+    },
+    "格式：%@。页码一律是 PDF 的物理页。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Format: %@. Pages are always physical PDF pages."
+          }
+        }
+      }
+    },
+    "检查目录页选得对不对：在预览里翻到目录页，勾选「这是目录页」，再识别。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check the TOC pages: show them in the preview, tick “This is a TOC page”, then recognize again."
+          }
+        }
+      }
+    },
+    "检查选的是不是目录页；表格里的条目要逐条核对。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check that these are TOC pages; check the entries in the table one by one."
+          }
+        }
+      }
+    },
+    "正在写入…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Writing…"
+          }
+        }
+      }
+    },
+    "正在写入或识别，请稍候。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Writing or recognizing; please wait."
+          }
+        }
+      }
+    },
+    "正在写入目录，请等写完再退出。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An outline is being written. Please wait until it is done before quitting."
+          }
+        }
+      }
+    },
+    "正在找前言页码…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finding front-matter pages…"
+          }
+        }
+      }
+    },
+    "正在找页码偏移…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finding the page offset…"
+          }
+        }
+      }
+    },
+    "正在整理结果…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finishing…"
+          }
+        }
+      }
+    },
+    "正在核对章标题…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Checking chapter headings…"
+          }
+        }
+      }
+    },
+    "正在正文页里找标题…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Looking for headings in the body pages…"
+          }
+        }
+      }
+    },
+    "正在解析目录文字…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parsing the TOC text…"
+          }
+        }
+      }
+    },
+    "正在识别目录页（第 %lld/%lld 页）…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reading TOC page %lld of %lld…"
+          }
+        }
+      }
+    },
+    "正在读取 %@…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reading %@…"
+          }
+        }
+      }
+    },
+    "正常" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
+    },
+    "每页识别大约需要 1–3 秒。取消会在当前这一页读完后生效。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Each page takes about 1–3 seconds. Cancelling takes effect after the current page."
+          }
+        }
+      }
+    },
+    "没有生成文件。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No file was created."
+          }
+        }
+      }
+    },
+    "没有编号，层级按缩进推断" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "no numbering; level taken from the indentation"
+          }
+        }
+      }
+    },
+    "没有编号，层级是按上下文猜的" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "no numbering; level guessed from the context"
+          }
+        }
+      }
+    },
+    "没有读出标题文字" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "no title text was read"
+          }
+        }
+      }
+    },
+    "没有读出目录条目。请检查目录页页码，再试一次。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No entries were read. Check the TOC page numbers and try again."
+          }
+        }
+      }
+    },
+    "没有读出目录条目。请检查粘贴的文字，再试一次。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No entries were read. Check the pasted text and try again."
+          }
+        }
+      }
+    },
+    "没有页码" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No page"
+          }
+        }
+      }
+    },
+    "没有页面的 PDF 没法加目录。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A PDF without pages cannot get an outline."
+          }
+        }
+      }
+    },
+    "添加同级条目" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Sibling"
+          }
+        }
+      }
+    },
+    "添加同级条目 / 添加子条目" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Sibling / Add Child"
+          }
+        }
+      }
+    },
+    "添加同级条目（⌘↩）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Sibling (⌘↩)"
+          }
+        }
+      }
+    },
+    "添加子条目" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Child"
+          }
+        }
+      }
+    },
+    "添加子条目（⌘⇧↩）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Child (⌘⇧↩)"
+          }
+        }
+      }
+    },
+    "添加条目" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Entry"
+          }
+        }
+      }
+    },
+    "清除手动页码" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear Manual Page"
+          }
+        }
+      }
+    },
+    "点一行，把预览翻到这一章真正的第一页，按 ⌘⇧L（按这一页校准偏移）。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Click an entry, show the chapter’s real first page in the preview, press ⌘⇧L (Calibrate Offset)."
+          }
+        }
+      }
+    },
+    "点击预览这一页；按住 ⌘ 点击标为目录页（或取消）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Click to preview this page; ⌘-click to mark it as a TOC page (or unmark it)"
+          }
+        }
+      }
+    },
+    "猜测，未确认" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guessed, not confirmed"
+          }
+        }
+      }
+    },
+    "目录" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Outline"
+          }
+        }
+      }
+    },
+    "目录上没有页码" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "no page number in the TOC"
+          }
+        }
+      }
+    },
+    "目录上没有页码，暂用上一条「%@」的页码" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "no page number in the TOC; using the page of the previous entry “%@” for now"
+          }
+        }
+      }
+    },
+    "目录上没有页码，暂用上一条的页码" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "no page number in the TOC; using the previous entry’s page for now"
+          }
+        }
+      }
+    },
+    "目录上没有页码，暂用下一条「%@」的页码" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "no page number in the TOC; using the page of the next entry “%@” for now"
+          }
+        }
+      }
+    },
+    "目录上没有页码，暂用下一条的页码" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "no page number in the TOC; using the next entry’s page for now"
+          }
+        }
+      }
+    },
+    "目录文字" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TOC text"
+          }
+        }
+      }
+    },
+    "目录是空的。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The outline is empty."
+          }
+        }
+      }
+    },
+    "目录条目" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Outline entries"
+          }
+        }
+      }
+    },
+    "目录表格（表格有焦点、没在改文字时）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Outline table (when it has the focus and no text is being edited)"
+          }
+        }
+      }
+    },
+    "目录里还有需要先处理的条目。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Some entries must be fixed first."
+          }
+        }
+      }
+    },
+    "目录页" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TOC Pages"
+          }
+        }
+      }
+    },
+    "目录页可能没选全，或者选的不是目录页；也可以粘贴目录文字。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Some TOC pages may be missing, or these are not TOC pages; you can also paste the TOC text."
+          }
+        }
+      }
+    },
+    "目录页：%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TOC pages: %@"
+          }
+        }
+      }
+    },
+    "确认并下一条" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirm and Next"
+          }
+        }
+      }
+    },
+    "第 %lld 条「%@」：%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entry %lld “%@”: %@"
+          }
+        }
+      }
+    },
+    "第 %lld 级" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Level %lld"
+          }
+        }
+      }
+    },
+    "第 %lld 页" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page %lld"
+          }
+        }
+      }
+    },
+    "第 %lld 页超出范围（共 %lld 页）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page %lld is out of range (%lld pages)"
+          }
+        }
+      }
+    },
+    "第 %lld 页：识别提示" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page %lld: recognition note"
+          }
+        }
+      }
+    },
+    "粘贴目录文字" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paste TOC Text"
+          }
+        }
+      }
+    },
+    "粘贴目录文字…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paste TOC Text…"
+          }
+        }
+      }
+    },
+    "粘贴目录文字…（⌘⇧V）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paste TOC Text… (⌘⇧V)"
+          }
+        }
+      }
+    },
+    "结束审阅" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "End Review"
+          }
+        }
+      }
+    },
+    "编号「%@」按 %@ 理解" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "numbering “%@” read as %@"
+          }
+        }
+      }
+    },
+    "编号后面的点已处理" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "a dot after the numbering was cleaned up"
+          }
+        }
+      }
+    },
+    "编号没识别出来，按前后章节补成「%@」" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "numbering not recognized; restored as “%@” from the neighbouring headings"
+          }
+        }
+      }
+    },
+    "编辑标题" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit Title"
+          }
+        }
+      }
+    },
+    "编辑标题时跳到页码 / 回到标题" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "While editing: to the page / back to the title"
+          }
+        }
+      }
+    },
+    "罗马数字「%@」按 %@ 理解" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "roman numeral “%@” read as %@"
+          }
+        }
+      }
+    },
+    "罗马数字页码读成 %@ 和 %@，保留了 %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "roman page number read as %@ and %@; kept %@"
+          }
+        }
+      }
+    },
+    "自动找偏移" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Offset Automatically"
+          }
+        }
+      }
+    },
+    "自动检测" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detected automatically"
+          }
+        }
+      }
+    },
+    "自动检测：%lld 个抽样页中 %lld 页一致" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detected automatically: %2$lld of %1$lld sampled pages agree"
+          }
+        }
+      }
+    },
+    "自动识别" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detect Automatically"
+          }
+        }
+      }
+    },
+    "解析" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parse"
+          }
+        }
+      }
+    },
+    "解析提示" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parser note"
+          }
+        }
+      }
+    },
+    "警告" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warning"
+          }
+        }
+      }
+    },
+    "设为当前预览页" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use Current Preview Page"
+          }
+        }
+      }
+    },
+    "设为本行页码" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use as This Entry’s Page"
+          }
+        }
+      }
+    },
+    "识别出 %lld 条，其中 %lld 条可疑" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Found %lld entries; %lld need checking"
+          }
+        }
+      }
+    },
+    "识别失败" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recognition failed"
+          }
+        }
+      }
+    },
+    "识别把握低（%@）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Low recognition confidence (%@)"
+          }
+        }
+      }
+    },
+    "识别提示" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recognition note"
+          }
+        }
+      }
+    },
+    "识别时给定的偏移" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offset given at recognition"
+          }
+        }
+      }
+    },
+    "识别目录页" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recognize TOC Pages"
+          }
+        }
+      }
+    },
+    "识别目录页…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recognize TOC Pages…"
+          }
+        }
+      }
+    },
+    "识别目录页…（⌘R）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recognize TOC Pages… (⌘R)"
+          }
+        }
+      }
+    },
+    "详情" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Details"
+          }
+        }
+      }
+    },
+    "详情：" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Details:"
+          }
+        }
+      }
+    },
+    "请先选择目录页：在缩略图上按住 ⌘ 点选，或在这里输入页码范围。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose the TOC pages first: ⌘-click them in the thumbnails, or type a page range here."
+          }
+        }
+      }
+    },
+    "读成 1，按页码顺序应为 i" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "read as 1; the page order says i"
+          }
+        }
+      }
+    },
+    "读成 i，按页码顺序应为 1" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "read as i; the page order says 1"
+          }
+        }
+      }
+    },
+    "返回修改" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back to Edit"
+          }
+        }
+      }
+    },
+    "还不能写入：有 %lld 处需要先处理" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cannot write yet: %lld problems must be fixed first"
+          }
+        }
+      }
+    },
+    "还有 %lld 条可疑没有核对。仍然写入？" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld entries still need checking. Write anyway?"
+          }
+        }
+      }
+    },
+    "这一条有错：先改好再核对（⌘E 改标题，双击页码改页码）。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This entry has an error: fix it before checking it (⌘E edits the title, double-click the page to edit it)."
+          }
+        }
+      }
+    },
+    "这一条没有发现问题。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No problems found in this entry."
+          }
+        }
+      }
+    },
+    "这不是 PDF 文件" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is not a PDF file"
+          }
+        }
+      }
+    },
+    "这个 PDF 已加密" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This PDF is encrypted"
+          }
+        }
+      }
+    },
+    "这个 PDF 没有页面" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This PDF has no pages"
+          }
+        }
+      }
+    },
+    "这个 PDF 还没有目录" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This PDF has no outline yet"
+          }
+        }
+      }
+    },
+    "这几页没有识别出文字，它们是目录页吗？" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No text was recognized on these pages. Are they the TOC pages?"
+          }
+        }
+      }
+    },
+    "这是一行里的第二栏" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "second column of a line"
+          }
+        }
+      }
+    },
+    "这是目录页" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is a TOC page"
+          }
+        }
+      }
+    },
+    "追加到末尾" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Append to End"
+          }
+        }
+      }
+    },
+    "退出审阅" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exit Review"
+          }
+        }
+      }
+    },
+    "退出审阅模式" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exit Review Mode"
+          }
+        }
+      }
+    },
+    "退出审阅（Esc）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exit Review (Esc)"
+          }
+        }
+      }
+    },
+    "选中下一条可疑的条目（⌘'）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select the next entry to check (⌘')"
+          }
+        }
+      }
+    },
+    "选中下一条有错的条目" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select the next entry with an error"
+          }
+        }
+      }
+    },
+    "选中本行到末尾" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select This Entry to the End"
+          }
+        }
+      }
+    },
+    "选中行页码 +1 / −1" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page +1 / −1 of the selected entries"
+          }
+        }
+      }
+    },
+    "选中行页码 +10 / −10" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page +10 / −10 of the selected entries"
+          }
+        }
+      }
+    },
+    "选中行页码 +1（]）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page +1 for Selected Rows (])"
+          }
+        }
+      }
+    },
+    "选中行页码 −1（[）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page −1 for Selected Rows ([)"
+          }
+        }
+      }
+    },
+    "选了 %lld 页。目录页最多 %lld 页。" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld pages selected. At most %lld TOC pages are allowed."
+          }
+        }
+      }
+    },
+    "键盘快捷键" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keyboard Shortcuts"
+          }
+        }
+      }
+    },
+    "页码" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page"
+          }
+        }
+      }
+    },
+    "页码 %@ 是从整列页码里读出的" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "page number %@ was read from the whole page-number column"
+          }
+        }
+      }
+    },
+    "页码 %@ 是按字形认出来的（没有识别出文字）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "page number %@ was read from the glyph shapes (OCR found no text)"
+          }
+        }
+      }
+    },
+    "页码 %@ 被拆开识别，已合并" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "page number %@ was split by OCR and joined"
+          }
+        }
+      }
+    },
+    "页码 + 章标题共同确认" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirmed by page numbers and chapter headings"
+          }
+        }
+      }
+    },
+    "页码 +1" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page +1"
+          }
+        }
+      }
+    },
+    "页码 −1" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page −1"
+          }
+        }
+      }
+    },
+    "页码偏移" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page Offset"
+          }
+        }
+      }
+    },
+    "页码偏移没能确定" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The page offset could not be determined"
+          }
+        }
+      }
+    },
+    "页码列几次重读的结果不一致" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "re-reads of the page-number column disagree"
+          }
+        }
+      }
+    },
+    "页码列重读为 %@（原来读成 %@）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the page-number column re-read gave %@ (first read as %@)"
+          }
+        }
+      }
+    },
+    "页码列重读得到 %@，保留了 %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the page-number column re-read gave %@; kept %@"
+          }
+        }
+      }
+    },
+    "页码和标题连在一起" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the page number touches the title"
+          }
+        }
+      }
+    },
+    "页码和章标题给出的偏移不一致" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page numbers and chapter headings suggest different offsets"
+          }
+        }
+      }
+    },
+    "页码是单个字母的罗马数字" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "single-letter roman page number"
+          }
+        }
+      }
+    },
+    "页码是在正文第 %@ 页找到标题后得出的" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "page found from the heading on body page %@"
+          }
+        }
+      }
+    },
+    "页码是在正文页上找到标题后得出的" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page found by locating the heading in the body pages"
+          }
+        }
+      }
+    },
+    "页码比上一条（第 %lld 页）小" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page is lower than the previous entry's (page %lld)"
+          }
+        }
+      }
+    },
+    "页码范围看不懂：%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cannot read the page range: %@"
+          }
+        }
+      }
+    },
+    "页码里有形近字（O、l、I），已按数字读" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "look-alike letters (O, l, I) in the page number were read as digits"
+          }
+        }
+      }
+    },
+    "页面缩略图" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page thumbnails"
+          }
+        }
+      }
+    },
+    "预览上一页" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Previous Preview Page"
+          }
+        }
+      }
+    },
+    "预览上一页 / 下一页" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Previous / next preview page"
+          }
+        }
+      }
+    },
+    "预览下一页" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next Preview Page"
+          }
+        }
+      }
+    },
+    "预览不可用" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preview Unavailable"
+          }
+        }
+      }
+    },
+    "预览与页码" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preview and pages"
+          }
+        }
+      }
+    },
+    "（无标题）" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(untitled)"
+          }
+        }
+      }
+    },
+    "；" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "; "
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

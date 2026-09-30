@@ -2,11 +2,11 @@
 
 给 PDF 加上可以点击的多级目录（书签），**原文件的字节一个都不改**。
 
-Mulu 是一个免费、开源（MIT）的 macOS 命令行工具。它还能识别扫描书里印刷的目录页，自动算出页码偏移，一条命令把目录写进 PDF。
+Mulu 是一个免费、开源（MIT）的 macOS 命令行工具，另有一个早期的图形界面（见[图形界面](#gui)）。它还能识别扫描书里印刷的目录页，自动算出页码偏移，一条命令把目录写进 PDF。
 
 [English below](#english)
 
-> **当前状态：预发布。** 只有命令行，还没有图形界面。下面的准确率数字来自程序生成的「合成」PDF 和扫描书。**在 17 本真实公版扫描书上**：写入安全 17/17 通过；`mulu auto` 只在 1 本上自动写出了目录（页码全对），其余 16 本都拒绝了，没有写错一本。老式英文目录、页码偏移在书中间改变、竖排中文目录目前都做不了。详见 [docs/REALSCAN.md](docs/REALSCAN.md)。
+> **当前状态：预发布。** 命令行可用；图形界面是 v0.1，要自己从源码构建，没有公证。下面的准确率数字来自程序生成的「合成」PDF 和扫描书。**在 17 本真实公版扫描书上**：写入安全 17/17 通过；`mulu auto` 只在 1 本上自动写出了目录（页码全对），其余 16 本都拒绝了，没有写错一本。老式英文目录、页码偏移在书中间改变、竖排中文目录目前都做不了。详见 [docs/REALSCAN.md](docs/REALSCAN.md)。
 
 ## 为什么做 Mulu
 
@@ -41,6 +41,22 @@ Mulu 是一个免费、开源（MIT）的 macOS 命令行工具。它还能识�
 - 全部在本机完成。mulu 本身不联网，OCR 用的是 macOS 自带的 Vision 框架。
 - 写 PDF 的命令（`apply`、`auto`）总是写到 `-o` 指定的新文件，输出路径等于输入文件时直接拒绝。输出文字的命令（`ocr-toc`、`detect-offset`、`toc parse`、`toc convert`、`export-outline`）打印到 stdout；其中后三个也可以用 `-o` 写到文件。
 - 没把握时 mulu 会拒绝：退出码为 2，原因写在 stderr，不产生输出 PDF。
+
+<a id="gui"></a>
+
+## 图形界面（Mulu.app，v0.1）
+
+自动识别在真书上经常不成功，所以图形界面的思路是：先给出草稿，再让人快速改对。点一行，预览跳到那一页；改偏移，所有页码跟着变；最后另存成带目录的新 PDF，原文件不动。
+
+```bash
+swift run MuluApp          # 直接从源码运行
+scripts/package_app.sh     # 打包成 dist/Mulu.app（ad-hoc 签名，没有公证）
+open dist/Mulu.app
+```
+
+![Mulu.app](docs/images/gui-v01.png)
+
+用法、快捷键、测试结果和已知限制见 [docs/GUI.md](docs/GUI.md)。
 
 ## 系统要求
 
@@ -205,7 +221,7 @@ tools/gate/run_gate.sh ~/你的书文件夹
 ## 路线图
 
 - 现在：已在 17 本公版扫描书上测过，下一步是支持老式英文目录（内容提要、课次范围）和分段页码偏移，并用现代中文教材验证。
-- 下一步：Mac 图形界面（GUI）。
+- 图形界面：v0.1 已经能用（[docs/GUI.md](docs/GUI.md)）。还缺公证、App 图标、草稿自动保存和分段偏移的自动检测。
 
 ## 许可证
 
@@ -221,9 +237,9 @@ Mulu 与 PDF补丁丁（PDFPatcher）、pdfdir 和 Apple 均无关联；「预�
 
 Mulu adds a clickable, multi-level outline (bookmarks) to a PDF **without changing a single original byte**.
 
-It is a free, open-source (MIT) command-line tool for macOS. It can also read the printed table of contents of a scanned book, work out the page offset, and write the outline in one command.
+It is a free, open-source (MIT) command-line tool for macOS, with an early Mac app (see [Mac app](#gui-en)). It can also read the printed table of contents of a scanned book, work out the page offset, and write the outline in one command.
 
-> **Status: pre-release.** Command line only; there is no GUI yet. The accuracy numbers below come from synthetic PDFs and synthetic scanned books. **On 17 real public-domain scans**, the writer passed 17/17; `mulu auto` wrote an outline for only 1 book (every page correct) and refused the other 16, writing no wrong outline. Old-style English TOCs, page offsets that change mid-book and vertical Chinese TOCs are not handled yet. See [docs/REALSCAN.md](docs/REALSCAN.md) (in Chinese).
+> **Status: pre-release.** The command line works; the Mac app is v0.1, built from source, not notarized. The accuracy numbers below come from synthetic PDFs and synthetic scanned books. **On 17 real public-domain scans**, the writer passed 17/17; `mulu auto` wrote an outline for only 1 book (every page correct) and refused the other 16, writing no wrong outline. Old-style English TOCs, page offsets that change mid-book and vertical Chinese TOCs are not handled yet. See [docs/REALSCAN.md](docs/REALSCAN.md) (in Chinese).
 
 ## Why
 
@@ -258,6 +274,20 @@ Our measurements (PDFKit whole-file resave vs. Mulu append):
 - Everything runs locally. mulu itself makes no network connections; OCR uses the Vision framework built into macOS.
 - Commands that write a PDF (`apply`, `auto`) always write a new file given with `-o`; an output path that is the input file is refused. Text commands (`ocr-toc`, `detect-offset`, `toc parse`, `toc convert`, `export-outline`) print to stdout; the last three can also write to a file with `-o`.
 - When mulu is not confident it refuses: exit status 2, the reason on stderr, no output PDF.
+
+<a id="gui-en"></a>
+
+## Mac app (Mulu.app, v0.1)
+
+Automatic recognition often fails on real books, so the app is built around a draft that you correct quickly. Click a row and the preview jumps to that page; change the offset and every page follows; then save a new PDF with the outline. The original file is never modified.
+
+```bash
+swift run MuluApp          # run from source
+scripts/package_app.sh     # build dist/Mulu.app (ad-hoc signed, not notarized)
+open dist/Mulu.app
+```
+
+The interface is in Chinese with an English translation. Usage, keyboard shortcuts, test results and known limitations are in [docs/GUI.md](docs/GUI.md) (in Chinese). A screenshot is in the Chinese section above.
 
 ## Requirements
 
@@ -422,7 +452,7 @@ Details (in Chinese): [tools/gate/README.md](tools/gate/README.md).
 ## Roadmap
 
 - Now: tested on 17 public-domain scans; next is support for old-style English TOCs (run-in synopses, lesson ranges), per-section page offsets, and validation on modern Chinese textbooks.
-- Next: a Mac GUI.
+- Mac app: v0.1 works ([docs/GUI.md](docs/GUI.md), in Chinese). Still missing: notarization, an app icon, draft autosave and automatic detection of per-section offsets.
 
 ## License
 

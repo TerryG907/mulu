@@ -285,7 +285,7 @@ import Testing
         #expect(r.entries[1].notes.contains("unnumbered: level from indentation"))
     }
 
-    @Test func ocrAgentOutputWithGarbledNumbering() {
+    @Test func ocrStageOutputWithGarbledNumbering() {
         // `mulu ocr-toc` style: 2 spaces per indent step, TAB before the page. The first
         // section's "第一节" came out as "第 竹", and two "一、" lost their numeral; the
         // indentation columns still place them under the right parent.

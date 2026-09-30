@@ -77,11 +77,18 @@ public final class TOCPageReader {
         rasterizer = try PDFRasterizer(url: url)
     }
 
-    public func read(pages: [Int], options: TOCReadOptions = TOCReadOptions()) throws -> TOCReadResult {
+    /// `progress`, when given, is called before page k (0-based) is read with (k, pages.count),
+    /// and once more with (pages.count, pages.count) after the last page, before the cross-page
+    /// "1"/"i" resolution. An error it throws (e.g. CancellationError) ends the read and is
+    /// rethrown unchanged. Without it (or when it never throws) the result is the same.
+    public func read(pages: [Int], options: TOCReadOptions = TOCReadOptions(),
+                     progress: ((_ done: Int, _ total: Int) throws -> Void)? = nil) throws -> TOCReadResult {
         var result = TOCReadResult(lines: [], pages: [], warnings: [])
-        for p in pages {
+        for (k, p) in pages.enumerated() {
+            try progress?(k, pages.count)
             try readPage(p, options: options, into: &result)
         }
+        try progress?(pages.count, pages.count)
         TOCPageReader.resolveOneOrI(&result.lines)
         return result
     }
